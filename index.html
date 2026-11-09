@@ -1,0 +1,3524 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPAim — Nhắm đích GPA 4.0 | Nhóm 04, Nhập môn CNTT, ĐH KHTN</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22 role=%22img%22 aria-label=%22Logo GPAim%22%3E%0A  %3Cdefs%3E%0A    %3ClinearGradient id=%22fvbg%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%230a1230%22/%3E%3Cstop offset=%221%22 stop-color=%22%2326308f%22/%3E%3C/linearGradient%3E%0A    %3ClinearGradient id=%22fvrg%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%2322d3ee%22/%3E%3Cstop offset=%221%22 stop-color=%22%237c6cf5%22/%3E%3C/linearGradient%3E%0A  %3C/defs%3E%0A  %3Crect width=%2248%22 height=%2248%22 rx=%2213%22 fill=%22url(%23fvbg)%22/%3E%0A  %3Crect x=%22.6%22 y=%22.6%22 width=%2246.8%22 height=%2246.8%22 rx=%2212.4%22 fill=%22none%22 stroke=%22%23fff%22 stroke-opacity=%22.14%22 stroke-width=%221.2%22/%3E%0A  %3Ccircle cx=%2224%22 cy=%2224%22 r=%2215.5%22 fill=%22none%22 stroke=%22url(%23fvrg)%22 stroke-width=%222.4%22 stroke-linecap=%22round%22 stroke-dasharray=%2220.6 3.6%22 stroke-dashoffset=%22-1.8%22/%3E%0A  %3Cg stroke=%22url(%23fvrg)%22 stroke-width=%222.2%22 stroke-linecap=%22round%22%3E%3Cline x1=%2234.50%22 y1=%2224.00%22 x2=%2243.50%22 y2=%2224.00%22/%3E%3Cline x1=%2224.00%22 y1=%2234.50%22 x2=%2224.00%22 y2=%2243.50%22/%3E%3Cline x1=%2213.50%22 y1=%2224.00%22 x2=%224.50%22 y2=%2224.00%22/%3E%3Cline x1=%2224.00%22 y1=%2213.50%22 x2=%2224.00%22 y2=%224.50%22/%3E%3C/g%3E%0A  %3Cpath d=%22M16.8 30.5 L24 18.5 L31.2 30.5%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%223%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%0A  %3Ccircle cx=%2224%22 cy=%2227.2%22 r=%222.1%22 fill=%22%2322d3ee%22/%3E%0A%3C/svg%3E">
+    <style>
+/* ==========================================================================
+   1. DESIGN SYSTEM & MODERN COLOR PALETTE
+   ========================================================================== */
+:root[data-theme="dark"] {
+    --bg-main: #090d16;
+    --bg-card: #111827;
+    --bg-card-hover: #1f2937;
+    --bg-sidebar: #0f172a;
+    --bg-header: rgba(15, 23, 42, 0.8);
+    --bg-input: #1e293b;
+    --border-color: #1e293b;
+    --border-accent: #334155;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --brand-primary: #3b82f6;
+    --brand-gradient: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+    --brand-glow: rgba(59, 130, 246, 0.25);
+    
+    --card-accent-1: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.05) 100%);
+    --card-accent-2: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%);
+    --card-accent-3: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%);
+    --card-accent-4: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(126, 34, 206, 0.05) 100%);
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --purple: #a78bfa;
+    
+    --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --bg-sidebar: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.85);
+    --bg-input: #f1f5f9;
+    --border-color: #e2e8f0;
+    --border-accent: #cbd5e1;
+    
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    
+    --brand-primary: #2563eb;
+    --brand-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    --brand-glow: rgba(37, 99, 235, 0.15);
+    
+    --card-accent-1: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    --card-accent-2: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    --card-accent-3: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    --card-accent-4: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --purple: #8b5cf6;
+    
+    --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 99px; }
+
+/* ==========================================================================
+   3. SIDEBAR NAVIGATION
+   ========================================================================== */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 30;
+    flex-shrink: 0;
+}
+
+.brand-header {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--brand-gradient);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 8px 20px var(--brand-glow);
+}
+
+.brand-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.brand-sub {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.nav-list {
+    padding: 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.nav-item:hover {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    transform: translateX(4px);
+}
+
+.nav-item.active {
+    background: var(--brand-gradient);
+    color: white;
+    box-shadow: 0 8px 20px var(--brand-glow);
+}
+
+.nav-divider {
+    margin: 20px 0 8px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-input);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.action-btn:hover {
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.action-btn.danger {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.action-btn.danger:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.theme-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.theme-footer button {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   4. MAIN CONTENT AREA & HEADER
+   ========================================================================== */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100vh;
+}
+
+.header-bar {
+    height: 74px;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+.content-area {
+    flex: 1;
+    padding: 36px;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   5. FEATURE CARDS & DASHBOARD KPI (Nâng cấp nổi bật)
+   ========================================================================== */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--border-accent);
+}
+
+.grid-kpi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.grid-kpi .card {
+    margin-bottom: 0;
+    border-width: 2px;
+}
+
+/* Bổ sung Accent Fills riêng biệt từng thẻ KPI */
+.grid-kpi .card:nth-child(1) { background: var(--card-accent-1); border-color: rgba(59, 130, 246, 0.3); }
+.grid-kpi .card:nth-child(2) { background: var(--card-accent-2); border-color: rgba(16, 185, 129, 0.3); }
+.grid-kpi .card:nth-child(3) { background: var(--card-accent-3); border-color: rgba(245, 158, 11, 0.3); }
+.grid-kpi .card:nth-child(4) { background: var(--card-accent-4); border-color: rgba(168, 85, 247, 0.3); }
+
+.kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kpi-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.8px;
+}
+
+.kpi-value {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    margin-top: 10px;
+}
+
+.kpi-sub {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--brand-gradient);
+    border-radius: 99px;
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.grid-charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.chart-box {
+    position: relative;
+    height: 290px;
+    width: 100%;
+}
+
+canvas { width: 100% !important; height: 100% !important; }
+
+/* ==========================================================================
+   6. TABLES, CONTROLS & BADGES
+   ========================================================================== */
+.filter-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+select, input[type="text"], input[type="number"], input[type="date"], textarea {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+}
+
+select:focus, input:focus, textarea:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px var(--brand-glow);
+}
+
+.status-pill-group {
+    display: flex;
+    gap: 6px;
+    background: var(--bg-input);
+    padding: 4px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+}
+
+.pill-btn {
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pill-btn.active {
+    background: var(--brand-gradient);
+    color: white;
+    box-shadow: 0 4px 12px var(--brand-glow);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    background-color: var(--bg-input);
+    color: var(--text-secondary);
+    font-weight: 800;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background-color: var(--bg-input); }
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.badge-success { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+.badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+.badge-danger { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+.badge-purple { background: rgba(168, 85, 247, 0.2); color: var(--purple); }
+
+.btn-primary {
+    background: var(--brand-gradient);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 16px var(--brand-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px var(--brand-glow);
+}
+
+td:first-child {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   7. NOTES GRID & MODALS
+   ========================================================================== */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.note-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-card);
+}
+
+.note-card:hover {
+    transform: translateY(-4px);
+}
+
+.note-card.highlight {
+    border: 2px solid var(--warning);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(9, 13, 22, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    width: 100%;
+    max-width: 480px;
+    padding: 32px;
+    box-shadow: var(--shadow-card);
+    transform: scale(0.92);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-backdrop.active .modal {
+    transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .grid-charts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    .sidebar {
+        width: 100%; height: auto; position: fixed; top: 0; left: 0; right: 0;
+    }
+    .nav-list { display: none; }
+    .nav-list.active { display: flex; }
+    .mobile-menu-btn { display: block; }
+    .main-wrapper { margin-top: 64px; }
+    .header-bar { padding: 0 20px; }
+    .content-area { padding: 20px; }
+}
+
+/* ==========================================================================
+   8. BỔ SUNG: BIẾN THIẾU, NHÓM TỰ CHỌN, IN ẤN, MOBILE
+   ========================================================================== */
+:root[data-theme="dark"] { --success-light: rgba(16, 185, 129, 0.15); }
+:root[data-theme="light"] { --success-light: #d1fae5; }
+
+.elective-card { padding: 20px 24px; }
+.elective-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+.elective-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+.elective-item {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 12px 14px;
+}
+.elective-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+}
+.elective-label { font-size: 12px; font-weight: 700; color: var(--text-secondary); }
+.elective-count { font-size: 13px; font-weight: 800; white-space: nowrap; }
+
+@media print {
+    .sidebar, .no-print, .action-btn, .modal-backdrop, .filter-card,
+    .btn-primary { display: none !important; }
+    body { display: block; height: auto; overflow: visible; background: #fff; }
+    .main-wrapper { height: auto; }
+    .content-area { overflow: visible; padding: 0; }
+    .tab-content { display: none !important; }
+    .tab-content.active { display: block !important; animation: none; }
+    .card { box-shadow: none; break-inside: avoid; }
+    * { transition: none !important; }
+}
+
+@media (max-width: 768px) {
+    .brand-header { padding: 10px 16px; }
+    .mobile-menu-btn { margin-left: auto; }
+    .main-wrapper { height: calc(100vh - 64px); }
+    .theme-footer { display: none; }
+    .nav-list.active ~ .theme-footer { display: flex; }
+    .sidebar { max-height: 100vh; overflow-y: auto; }
+}
+
+
+/* ==========================================================================
+   9. TIẾN ĐỘ THEO KHỐI, MÔN TỰ CHỌN TỰ DO
+   ========================================================================== */
+.elective-hint { font-size: 11px; font-weight: 600; color: var(--text-muted); margin-top: 8px; line-height: 1.4; }
+
+.block-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+.block-item {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 16px 18px;
+}
+.block-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.block-label { font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.block-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.block-count { font-size: 13px; font-weight: 800; white-space: nowrap; }
+.block-detail { font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-top: 8px; }
+
+.free-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.free-row input[type="text"] { flex: 1; min-width: 240px; }
+
+.mini-remove {
+    margin-left: 6px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border-radius: 8px;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.mini-remove:hover { background: rgba(239, 68, 68, 0.25); }
+
+@media print {
+    .free-row, .mini-remove { display: none !important; }
+}
+
+
+/* Calendar view for study notes */
+.calendar-toolbar{display:flex;align-items:center;gap:12px;margin:0 0 14px;padding:12px 16px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px}
+.calendar-toolbar h4{font-size:16px;text-transform:capitalize;min-width:170px;text-align:center}
+.calendar-nav,.calendar-today{border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-primary);border-radius:10px;padding:7px 12px;font-weight:700;cursor:pointer}
+.calendar-nav{font-size:20px;line-height:1}
+.calendar-today{margin-left:auto}
+.notes-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;align-items:stretch}
+.calendar-weekday{text-align:center;padding:10px 4px;font-size:11px;font-weight:800;color:var(--text-muted);text-transform:uppercase}
+.calendar-day{min-height:120px;padding:8px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;overflow:hidden}
+.calendar-day-empty{background:transparent;border-style:dashed;opacity:.45}
+.calendar-day-today{border:2px solid var(--brand-primary)}
+.calendar-day-number{font-size:12px;font-weight:800;color:var(--text-secondary);margin-bottom:6px}
+.calendar-note{padding:7px;margin:5px 0 0;background:var(--bg-input);border-left:3px solid var(--brand-primary);border-radius:8px;font-size:11px;overflow-wrap:anywhere}
+.calendar-note-highlight{border-left-color:var(--warning);background:rgba(245,158,11,.12)}
+.calendar-note strong{display:block;font-size:11px;margin-bottom:3px}
+.calendar-note p{color:var(--text-secondary);white-space:pre-line;line-height:1.35;margin:0}
+.calendar-note-actions{display:flex;gap:8px;margin-top:5px}
+.calendar-note-actions button{border:0;background:none;color:var(--brand-primary);font-size:10px;font-weight:700;cursor:pointer}
+.calendar-note-actions button:last-child{color:var(--danger)}
+@media(max-width:900px){.notes-calendar{grid-template-columns:repeat(7,minmax(100px,1fr));overflow-x:auto}.calendar-day{min-height:100px}}
+
+/* ==========================================================================
+   VISUAL REFRESH — chỉ màu sắc và bố cục
+   ========================================================================== */
+:root[data-theme="light"] {
+    --bg-main: #f2f5fa;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f7faff;
+    --bg-sidebar: #101b35;
+    --bg-header: rgba(242, 245, 250, 0.88);
+    --bg-input: #f3f6fb;
+    --border-color: #e2e8f2;
+    --border-accent: #cbd6e7;
+    --text-primary: #17233d;
+    --text-secondary: #53627c;
+    --text-muted: #8996aa;
+    --brand-primary: #5b5ce2;
+    --brand-gradient: linear-gradient(135deg, #6b65ed 0%, #4b52d5 100%);
+    --brand-glow: rgba(91, 92, 226, .2);
+    --success: #12a982;
+    --warning: #e8a437;
+    --danger: #e35c67;
+    --purple: #8a66d8;
+    --shadow-card: 0 12px 35px rgba(32, 50, 87, .07);
+    --success-light: #d9f5eb;
+    --card-accent-1: linear-gradient(145deg, #f0f0ff, #ffffff 80%);
+    --card-accent-2: linear-gradient(145deg, #e9faf4, #ffffff 80%);
+    --card-accent-3: linear-gradient(145deg, #fff5e6, #ffffff 80%);
+    --card-accent-4: linear-gradient(145deg, #f4efff, #ffffff 80%);
+}
+:root[data-theme="dark"] {
+    --bg-main: #0c1222;
+    --bg-card: #141e33;
+    --bg-card-hover: #1a2943;
+    --bg-sidebar: #0a1020;
+    --bg-header: rgba(12, 18, 34, .88);
+    --bg-input: #1a2740;
+    --border-color: #26334d;
+    --border-accent: #394966;
+    --text-primary: #edf2ff;
+    --text-secondary: #aab7d0;
+    --text-muted: #7f8da8;
+    --brand-primary: #8984ff;
+    --brand-gradient: linear-gradient(135deg, #8c83ff 0%, #5c66e8 100%);
+    --brand-glow: rgba(124, 116, 255, .24);
+    --success: #39c8a0;
+    --warning: #f2b54c;
+    --danger: #ff727b;
+    --purple: #b29aff;
+    --shadow-card: 0 16px 40px rgba(0, 0, 0, .24);
+    --success-light: rgba(18, 169, 130, .18);
+    --card-accent-1: linear-gradient(145deg, rgba(99, 102, 241, .17), #141e33 82%);
+    --card-accent-2: linear-gradient(145deg, rgba(18, 169, 130, .14), #141e33 82%);
+    --card-accent-3: linear-gradient(145deg, rgba(232, 164, 55, .14), #141e33 82%);
+    --card-accent-4: linear-gradient(145deg, rgba(138, 102, 216, .16), #141e33 82%);
+}
+
+* { transition-duration: .18s; }
+body {
+    background-image: radial-gradient(ellipse at 82% 0%, rgba(105, 101, 237, .08), transparent 34%),
+                      radial-gradient(ellipse at 4% 90%, rgba(18, 169, 130, .045), transparent 28%);
+}
+.sidebar {
+    width: 268px;
+    background-image: linear-gradient(165deg, #14213f 0%, var(--bg-sidebar) 52%);
+    border-right: 0;
+    box-shadow: 8px 0 35px rgba(12, 20, 42, .08);
+}
+.brand-header { padding: 25px 20px 22px; border-bottom-color: rgba(255,255,255,.09); }
+.brand-title { color: #f5f7ff; letter-spacing: .2px; }
+.brand-sub { color: #a8b3cb; }
+.brand-icon { border-radius: 15px; background: linear-gradient(145deg,#817bff,#545ddd); }
+.nav-list { padding: 22px 13px; gap: 7px; }
+.nav-item { color: #aab6cf; border-radius: 12px; padding: 12px 14px; }
+.nav-item:hover { color: white; background: rgba(255,255,255,.075); transform: translateX(3px); }
+.nav-item.active { color: white; background: linear-gradient(110deg,rgba(124,117,255,.28),rgba(86,101,225,.17)); box-shadow: inset 3px 0 #8d87ff; }
+.nav-divider { color: #7786a5; margin: 24px 0 7px 12px; }
+.action-btn { color: #c0cbe0; background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.09); }
+.action-btn:hover { color: white; background: rgba(255,255,255,.11); border-color: rgba(255,255,255,.2); }
+.action-btn.danger { color: #ff8b92; background: rgba(227,92,103,.12); border-color: rgba(227,92,103,.2); }
+.theme-footer { border-color: rgba(255,255,255,.09); }
+.theme-footer span { color: #a8b3cb !important; }
+.theme-footer button { color: #e7ebf7; background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.13); }
+.main-wrapper { min-height: 0; }
+.header-bar { height: 82px; padding: 0 clamp(22px, 3vw, 46px); position: relative; z-index: 5; }
+.header-title { font-size: 22px; letter-spacing: -.55px; }
+.content-area { padding: clamp(22px, 3vw, 42px); }
+.tab-content.active { max-width: 1580px; margin: 0 auto; }
+.grid-kpi { gap: 18px; margin-bottom: 22px; }
+.grid-kpi .card { min-height: 164px; padding: 22px; border-radius: 20px; }
+.kpi-title { letter-spacing: .65px; }
+.kpi-value { font-size: clamp(31px, 3vw, 40px); }
+.card { border-radius: 20px; padding: 24px; box-shadow: var(--shadow-card); }
+.card:hover { transform: translateY(-2px); box-shadow: 0 17px 42px rgba(32,50,87,.11); }
+.grid-charts { gap: 18px; }
+.chart-box { height: 310px; }
+.filter-card { padding: 17px 19px; border-radius: 18px; gap: 14px; }
+select, input[type="text"], input[type="number"], input[type="date"], textarea { border-radius: 11px; }
+.status-pill-group { border-radius: 12px; }
+.pill-btn { padding: 8px 12px; }
+.btn-primary { border-radius: 11px; background: linear-gradient(130deg,#7169ed,#4e5edb); box-shadow: 0 7px 18px rgba(91,92,226,.22); }
+.btn-primary:hover { box-shadow: 0 10px 25px rgba(91,92,226,.3); }
+.table-responsive { border-radius: 16px; }
+table { font-size: 12.5px; }
+th { padding: 14px 16px; letter-spacing: .35px; }
+td { padding: 13px 16px; }
+tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--bg-input) 45%, transparent); }
+.badge { border-radius: 9px; }
+.calendar-toolbar { border-radius: 16px; box-shadow: var(--shadow-card); }
+.calendar-day { border-radius: 13px; }
+.note-card { border-radius: 18px; }
+.modal { border-radius: 22px; }
+
+@media (max-width: 1000px) {
+    .sidebar { width: 245px; }
+    .content-area { padding: 22px; }
+    .grid-kpi { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .filter-card { justify-content: flex-start; }
+}
+@media (max-width: 768px) {
+    .sidebar { width: 100%; background-image: linear-gradient(110deg,#14213f,#0a1020); }
+    .brand-header { padding: 10px 16px; }
+    .header-bar { height: auto; min-height: 72px; padding: 12px 18px; gap: 12px; }
+    .header-title { font-size: 18px; }
+    .content-area { padding: 16px; }
+    .grid-kpi { gap: 12px; }
+    .grid-kpi .card { min-height: 145px; padding: 17px; }
+    .kpi-value { font-size: 30px; }
+    .card { padding: 19px; border-radius: 17px; }
+}
+@media (max-width: 480px) {
+    .grid-kpi { grid-template-columns: 1fr; }
+    .grid-kpi .card { min-height: 0; }
+    .header-bar > div:last-child { display: none !important; }
+    .filter-group { flex-wrap: wrap; }
+}
+
+
+/* Final design pass: academic teal / ink palette */
+:root[data-theme="light"] { --bg-main:#f3f6f8; --bg-card:#fff; --bg-card-hover:#f8fbfc; --bg-sidebar:#102a43; --bg-header:rgba(243,246,248,.92); --bg-input:#f2f6f7; --border-color:#e1e9ea; --border-accent:#c6d6d6; --text-primary:#183044; --text-secondary:#536b78; --text-muted:#8297a0; --brand-primary:#2f5bea; --brand-gradient:linear-gradient(130deg,#22a6f2,#2f55e0); --brand-glow:rgba(47,91,234,.18); --success:#16856d; --warning:#d08a24; --danger:#d64e59; --purple:#7556b5; --shadow-card:0 12px 32px rgba(22,54,68,.065); --success-light:#def3ea; --card-accent-1:linear-gradient(145deg,#e6f0ff,#fff 78%); --card-accent-2:linear-gradient(145deg,#e4f3ed,#fff 78%); --card-accent-3:linear-gradient(145deg,#fff2df,#fff 78%); --card-accent-4:linear-gradient(145deg,#eeeafa,#fff 78%); }
+:root[data-theme="dark"] { --bg-main:#0b1722; --bg-card:#132432; --bg-card-hover:#1a3040; --bg-sidebar:#081521; --bg-header:rgba(11,23,34,.92); --bg-input:#1a2d3b; --border-color:#29404c; --border-accent:#3b5661; --text-primary:#ecf4f3; --text-secondary:#afc3c5; --text-muted:#80999d; --brand-primary:#5cc8ff; --brand-gradient:linear-gradient(130deg,#38bdf8,#4f6df5); --brand-glow:rgba(56,189,248,.2); --success:#52c79e; --warning:#eab353; --danger:#f0787e; --purple:#b39be5; --shadow-card:0 16px 38px rgba(0,0,0,.23); --success-light:rgba(22,133,109,.2); --card-accent-1:linear-gradient(145deg,rgba(56,189,248,.13),#132432 76%); --card-accent-2:linear-gradient(145deg,rgba(54,169,126,.13),#132432 76%); --card-accent-3:linear-gradient(145deg,rgba(208,138,36,.13),#132432 76%); --card-accent-4:linear-gradient(145deg,rgba(117,86,181,.15),#132432 76%); }
+body { background-image:radial-gradient(ellipse at 78% 2%,rgba(47,91,234,.075),transparent 32%); }
+.sidebar { width:270px; background:linear-gradient(180deg,#15354c 0%,#102a43 45%,#0e2438 100%); border-right:1px solid rgba(255,255,255,.07); box-shadow:8px 0 28px rgba(13,37,54,.1); }
+.brand-header { padding:26px 20px 22px; border-color:rgba(255,255,255,.1); }
+.brand-icon { background:linear-gradient(145deg,#22a6f2,#2f5bea); border-radius:15px; box-shadow:0 9px 22px rgba(47,91,234,.25); }
+.brand-title { color:#f6fbfa; letter-spacing:.1px; } .brand-sub { color:#b1c7ce; }
+.nav-list { padding:21px 13px; gap:7px; } .nav-item { color:#bdd0d5; border-radius:12px; padding:12px 14px; }
+.nav-item:hover { background:rgba(255,255,255,.08); color:#fff; transform:translateX(3px); }
+.nav-item.active { background:rgba(56,189,248,.17); color:#fff; box-shadow:inset 3px 0 #5cc8ff; }
+.nav-divider { color:#91adb5; } .action-btn { color:#cedcdf; background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.1); }
+.action-btn:hover { color:#fff; background:rgba(255,255,255,.11); border-color:rgba(255,255,255,.2); }
+.action-btn.danger { color:#ff9b9e; background:rgba(214,78,89,.12); border-color:rgba(214,78,89,.22); }
+.theme-footer { border-color:rgba(255,255,255,.1); } .theme-footer span { color:#b1c7ce!important; }
+.theme-footer button { color:#eaf2f2; background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.14); }
+.header-bar { min-height:80px; padding:0 clamp(22px,3vw,46px); border-bottom-color:var(--border-color); }
+.header-title { font-size:22px; letter-spacing:-.55px; } .content-area { padding:clamp(22px,3vw,42px); }
+.tab-content.active { max-width:1600px; margin:0 auto; }
+.grid-kpi { gap:18px; margin-bottom:22px; } .grid-kpi .card { min-height:164px; padding:22px; border-radius:19px; }
+.grid-kpi .card:nth-child(1) { border-top:3px solid #2f8cf0; } .grid-kpi .card:nth-child(2) { border-top:3px solid #16856d; }
+.grid-kpi .card:nth-child(3) { border-top:3px solid #d08a24; } .grid-kpi .card:nth-child(4) { border-top:3px solid #7556b5; }
+.kpi-title { letter-spacing:.65px; } .kpi-value { font-size:clamp(31px,3vw,40px); }
+.card { border-radius:19px; padding:24px; box-shadow:var(--shadow-card); } .card:hover { transform:translateY(-2px); box-shadow:0 17px 40px rgba(22,54,68,.11); }
+.grid-charts { grid-template-columns:minmax(0,1.65fr) minmax(320px,1fr); gap:18px; } .chart-box { height:310px; }
+.filter-card { padding:17px 19px; border-radius:17px; gap:14px; }
+select,input[type="text"],input[type="number"],input[type="date"],textarea { border-radius:11px; }
+.status-pill-group { border-radius:11px; } .pill-btn { padding:8px 12px; }
+.btn-primary { border-radius:11px; background:linear-gradient(130deg,#22a6f2,#2f5bea); box-shadow:0 7px 18px rgba(47,91,234,.2); }
+.btn-primary:hover { box-shadow:0 10px 24px rgba(47,91,234,.28); }
+.table-responsive { border-radius:15px; } table { font-size:12.5px; } th { padding:14px 16px; letter-spacing:.35px; } td { padding:13px 16px; }
+tbody tr:nth-child(even) td { background:color-mix(in srgb,var(--bg-input) 42%,transparent); }
+.badge { border-radius:9px; } .calendar-toolbar { border-radius:15px; box-shadow:var(--shadow-card); }
+.calendar-day { border-radius:12px; } .note-card { border-radius:17px; } .modal { border-radius:22px; }
+@media(max-width:1000px) { .sidebar{width:244px} .content-area{padding:22px} .grid-kpi{grid-template-columns:repeat(2,minmax(0,1fr))} .filter-card{justify-content:flex-start} }
+@media(max-width:768px) { .sidebar{width:100%;background:linear-gradient(110deg,#15354c,#0e2438)} .brand-header{padding:10px 16px} .header-bar{height:auto;min-height:72px;padding:12px 18px;gap:12px} .header-title{font-size:18px} .content-area{padding:16px} .grid-kpi{gap:12px} .grid-kpi .card{min-height:145px;padding:17px} .kpi-value{font-size:30px} .card{padding:19px;border-radius:16px} }
+@media(max-width:480px) { .grid-kpi{grid-template-columns:1fr} .grid-kpi .card{min-height:0} .header-bar>div:last-child{display:none!important} .filter-group{flex-wrap:wrap} }
+
+/* Upcoming due date reminders */
+.note-reminders{display:grid;grid-template-columns:minmax(190px,.7fr) minmax(0,2fr);gap:18px;align-items:center;margin:0 0 18px;padding:16px 19px;background:linear-gradient(110deg,rgba(47,91,234,.11),var(--bg-card) 52%);border:1px solid rgba(47,91,234,.2);border-left:4px solid var(--brand-primary);border-radius:16px;box-shadow:var(--shadow-card)}
+.note-reminders-empty{grid-template-columns:1fr;background:var(--bg-card);border-color:var(--border-color);border-left-color:var(--success)}
+.note-reminders-heading{display:flex;align-items:center;gap:12px}.note-reminders-heading strong{display:block;font-size:14px;color:var(--text-primary)}
+.note-reminders-heading p{font-size:12px;color:var(--text-secondary);margin-top:3px;line-height:1.4}
+.note-reminders-icon{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:11px;background:var(--brand-primary);color:#fff;font-size:18px;font-weight:900}
+.note-reminders-empty .note-reminders-icon{background:var(--success)}
+.note-reminders-list{display:flex;flex-wrap:wrap;gap:8px}.note-reminder-item{display:flex;align-items:center;gap:9px;min-width:190px;flex:1;padding:9px 11px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:11px}
+.note-reminder-date{font-size:11px;font-weight:800;color:var(--brand-primary);white-space:nowrap}.note-reminder-date small{display:block;margin-top:2px;color:var(--text-muted);font-size:10px;font-weight:600}
+.note-reminder-title{min-width:0;font-size:12px;font-weight:700;color:var(--text-primary);overflow-wrap:anywhere}.note-reminder-star{color:var(--warning);margin-left:auto}
+.calendar-note-upcoming{border-left-color:var(--warning);box-shadow:0 0 0 1px rgba(208,138,36,.12)}
+.calendar-due-badge{display:inline-block;margin:0 0 0 5px;padding:2px 5px;border-radius:5px;background:rgba(208,138,36,.16);color:var(--warning);font-size:9px;font-weight:800;vertical-align:middle;white-space:nowrap}
+@media(max-width:900px){.note-reminders{grid-template-columns:1fr;gap:12px}}
+@media(max-width:520px){.note-reminders{padding:13px}.note-reminder-item{min-width:100%}}
+
+/* ==========================================================================
+   THANH MENU (SIDEBAR) THEO GIAO DIỆN SÁNG / TỐI
+   Ghi đè các quy tắc cũ: trước đây thanh menu luôn nền tối nên ở giao diện
+   sáng nút ☰ và chữ dùng màu tối trên nền tối, rất khó nhìn.
+   ========================================================================== */
+.mobile-menu-btn {
+    width: 42px; height: 42px; padding: 0; flex-shrink: 0;
+    align-items: center; justify-content: center;
+    border-radius: 11px; font-size: 22px; line-height: 1;
+}
+@media (max-width: 768px) { .mobile-menu-btn { display: flex; } }
+.nav-item:focus-visible, .action-btn:focus-visible, .mobile-menu-btn:focus-visible, .theme-footer button:focus-visible {
+    outline: 2px solid #38bdf8; outline-offset: 2px;
+}
+
+/* ----- GIAO DIỆN SÁNG: menu nền trắng, chữ đậm ----- */
+:root[data-theme="light"] .sidebar { background: #ffffff; background-image: none; border-right: 1px solid #dbe6e8; box-shadow: 6px 0 24px rgba(22, 54, 68, .07); }
+:root[data-theme="light"] .brand-header { border-bottom-color: #e1e9ea; }
+:root[data-theme="light"] .brand-title { color: #102a43; }
+:root[data-theme="light"] .brand-sub { color: #4a6372; }
+:root[data-theme="light"] .nav-item { color: #2f4a5c; }
+:root[data-theme="light"] .nav-item:hover { background: #e8f0ff; color: #1e40af; }
+:root[data-theme="light"] .nav-item.active { background: linear-gradient(130deg, #22a6f2, #2f55e0); color: #ffffff; box-shadow: 0 6px 16px rgba(47,91,234, .28); }
+:root[data-theme="light"] .nav-divider { color: #5f7886; }
+:root[data-theme="light"] .action-btn { color: #2f4a5c; background: #f2f6f7; border-color: #d3e0e2; }
+:root[data-theme="light"] .action-btn:hover { color: #1e40af; background: #e6f1f2; border-color: #a9c8cc; }
+:root[data-theme="light"] .action-btn.danger { color: #b4303f; background: #fdecee; border-color: #f3c4c9; }
+:root[data-theme="light"] .action-btn.danger:hover { color: #9b2431; background: #fadde0; border-color: #ecaab0; }
+:root[data-theme="light"] .theme-footer { border-color: #e1e9ea; }
+:root[data-theme="light"] .theme-footer span { color: #3f5868 !important; }
+:root[data-theme="light"] .theme-footer button { color: #102a43; background: #eef4f5; border-color: #cfdde0; }
+:root[data-theme="light"] .mobile-menu-btn { color: #102a43; background: #eef4f5; border: 1px solid #cfdde0; }
+:root[data-theme="light"] .mobile-menu-btn:hover { background: #e1eef0; }
+
+/* ----- GIAO DIỆN TỐI: giữ nền tối, tăng độ tương phản chữ và nút ----- */
+:root[data-theme="dark"] .sidebar { background: linear-gradient(180deg, #0f2233 0%, #0a1824 100%); border-right: 1px solid rgba(255, 255, 255, .08); }
+:root[data-theme="dark"] .brand-header { border-bottom-color: rgba(255, 255, 255, .12); }
+:root[data-theme="dark"] .brand-title { color: #ffffff; }
+:root[data-theme="dark"] .brand-sub { color: #c9dbe0; }
+:root[data-theme="dark"] .nav-item { color: #d3e3e6; }
+:root[data-theme="dark"] .nav-item:hover { background: rgba(255, 255, 255, .1); color: #ffffff; }
+:root[data-theme="dark"] .nav-item.active { background: rgba(56,189,248, .24); color: #ffffff; box-shadow: inset 3px 0 #5cc8ff; }
+:root[data-theme="dark"] .nav-divider { color: #a9c3ca; }
+:root[data-theme="dark"] .action-btn { color: #dbe8ea; background: rgba(255, 255, 255, .07); border-color: rgba(255, 255, 255, .15); }
+:root[data-theme="dark"] .action-btn:hover { color: #ffffff; background: rgba(255, 255, 255, .13); border-color: rgba(255, 255, 255, .28); }
+:root[data-theme="dark"] .action-btn.danger { color: #ffb0b4; background: rgba(214, 78, 89, .16); border-color: rgba(214, 78, 89, .3); }
+:root[data-theme="dark"] .theme-footer { border-color: rgba(255, 255, 255, .12); }
+:root[data-theme="dark"] .theme-footer span { color: #c9dbe0 !important; }
+:root[data-theme="dark"] .theme-footer button { color: #ffffff; background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .2); }
+:root[data-theme="dark"] .mobile-menu-btn { color: #ffffff; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .24); }
+:root[data-theme="dark"] .mobile-menu-btn:hover { background: rgba(255, 255, 255, .18); }
+
+/* ==========================================================================
+   KIỂM TRA CHỨNG CHỈ NGOẠI NGỮ
+   ========================================================================== */
+.lang-form { display: grid; gap: 16px; }
+.lang-field label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+.lang-field input, .lang-field select { width: 100%; }
+.lang-check { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--text-primary); cursor: pointer; }
+.lang-check input { width: 18px; height: 18px; flex-shrink: 0; }
+.lang-hint { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.lang-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+.btn-secondary {
+    padding: 10px 16px; border-radius: 11px; border: 1px solid var(--border-accent);
+    background: var(--bg-input); color: var(--text-primary); font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+.lang-result { margin-top: 22px; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--border-color); color: var(--text-primary); }
+.lang-result.pass { background: var(--success-light); border-color: var(--success); }
+.lang-result.fail { background: rgba(214, 78, 89, 0.1); border-color: var(--danger); }
+.lang-result h4 { font-size: 16px; font-weight: 800; }
+.lang-result.pass h4 { color: var(--success); }
+.lang-result.fail h4 { color: var(--danger); }
+.lang-result-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.lang-result ul { margin: 12px 0 0 18px; font-size: 13px; line-height: 1.8; }
+.lang-result p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+.lang-banner {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 18px; padding: 13px 18px; border-radius: 14px; font-size: 13px; font-weight: 600;
+}
+.lang-banner.pass { background: var(--success-light); color: var(--success); border: 1px solid var(--success); }
+.lang-banner.fail { background: rgba(214, 78, 89, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+.lang-banner .btn-secondary { padding: 7px 12px; }
+
+/* ==========================================================================
+   DỰ BÁO MỤC TIÊU GPA THEO HỌC KỲ
+   ========================================================================== */
+.goal-card { max-width: 1040px; margin: 0 auto 22px; }
+.goal-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.goal-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px; }
+.sem-pills { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.sem-pill { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 6px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-secondary); cursor: pointer; font-size: 13px; font-weight: 700; position: relative; }
+.sem-pill small { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.sem-pill:hover { border-color: var(--brand-primary); color: var(--text-primary); }
+.sem-pill.active { background: var(--brand-gradient); border-color: transparent; color: #fff; box-shadow: 0 6px 16px var(--brand-glow); }
+.sem-pill.active small { color: rgba(255, 255, 255, .85); }
+.sem-pill.has-alert::after { content: ""; position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--danger); }
+.goal-form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 20px; }
+.goal-form .goal-field { display: grid; gap: 6px; }
+.goal-form input[type="number"] { width: 150px; font-size: 20px; font-weight: 700; padding: 10px 14px; }
+.goal-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.goal-chip { padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border-accent); background: var(--bg-input); color: var(--text-secondary); font-size: 12px; font-weight: 700; cursor: pointer; }
+.goal-chip:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+.goal-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.goal-stat { padding: 14px 16px; border-radius: 14px; background: var(--bg-input); border: 1px solid var(--border-color); }
+.goal-stat-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); }
+.goal-stat-value { font-size: 26px; font-weight: 800; margin-top: 6px; }
+.goal-stat-sub { font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-top: 4px; }
+.goal-alerts { display: grid; gap: 10px; }
+.goal-alert { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border-color); border-left-width: 4px; background: var(--bg-input); font-size: 13px; line-height: 1.55; }
+.goal-alert strong { display: block; font-size: 13px; margin-bottom: 2px; }
+.goal-alert.info { border-left-color: var(--brand-primary); }
+.goal-alert.warn { border-color: var(--warning); background: rgba(208, 138, 36, .1); }
+.goal-alert.danger { border-color: var(--danger); background: rgba(214, 78, 89, .1); }
+.goal-alert.ok { border-color: var(--success); background: var(--success-light); }
+.goal-alert-icon { flex: 0 0 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 14px; background: var(--brand-primary); }
+.goal-alert.warn .goal-alert-icon { background: var(--warning); }
+.goal-alert.danger .goal-alert-icon { background: var(--danger); }
+.goal-alert.ok .goal-alert-icon { background: var(--success); }
+.goal-need { font-weight: 800; color: var(--brand-primary); white-space: nowrap; }
+.goal-need small { font-weight: 700; color: var(--text-secondary); margin-left: 4px; }
+.goal-note { padding: 14px 20px; font-size: 12px; color: var(--text-secondary); line-height: 1.6; border-top: 1px solid var(--border-color); }
+.goal-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; padding: 14px 18px; border-radius: 16px; border: 1px solid var(--warning); border-left-width: 4px; background: rgba(208, 138, 36, .1); font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.goal-banner.danger { border-color: var(--danger); background: rgba(214, 78, 89, .1); }
+@media print { .goal-form, .goal-chips { display: none !important; } }
+
+/* Thương hiệu GPAim */
+.brand-icon { background: none !important; box-shadow: none !important; padding: 0; width: 44px; height: 44px; flex-shrink: 0; }
+.brand-icon svg { display: block; border-radius: 13px; box-shadow: 0 8px 20px rgba(47,91,234, .32); }
+.brand-title { font-size: 22px; letter-spacing: -.6px; line-height: 1.1; }
+.brand-accent { color: #2f5bea; }
+.brand-sub { font-weight: 600; letter-spacing: 0; font-size: 10.5px; white-space: nowrap; }
+.brand-header { gap: 12px; }
+    
+/* GPAim: nhấn màu cho chữ "Aim" ở chế độ tối */
+:root[data-theme="dark"] .brand-accent { color: #5cc8ff; }
+:root[data-theme="dark"] { --card-accent-1: linear-gradient(145deg, rgba(56,189,248,.14), #132432 76%); }
+
+/* Thẻ ghi nguồn đồ án ở thanh tiêu đề */
+.header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+.credit-badge { display: flex; align-items: center; gap: 12px; padding: 8px 18px 8px 10px; border-radius: 999px; color: #fff;
+    background: linear-gradient(120deg, #22a6f2 0%, #3b5bf0 55%, #7c5cf0 100%); box-shadow: 0 8px 22px rgba(59, 91, 240, .32), inset 0 0 0 1px rgba(255, 255, 255, .22); }
+.credit-icon { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .2); flex-shrink: 0; }
+.credit-text { display: grid; line-height: 1.25; }
+.credit-line1 { font-size: 11px; font-weight: 600; letter-spacing: .2px; color: rgba(255, 255, 255, .88); }
+.credit-line2 { font-size: 13px; font-weight: 800; letter-spacing: .1px; }
+@media (max-width: 1100px) { .credit-line1 { display: none; } .credit-badge { padding-right: 16px; } }
+@media (max-width: 768px) { .header-right { width: 100%; justify-content: flex-start; } }
+@media (max-width: 480px) { .header-bar { flex-wrap: wrap; } .header-bar > div.header-right { display: flex !important; } .sync-pill { display: none !important; } .credit-line1 { display: block; font-size: 10px; } }
+@media print { .credit-badge { display: none !important; } }
+
+/* ==========================================================================
+   RESPONSIVE: THU HẸP TRANG / ĐIỆN THOẠI (ghi đè cuối cùng, ưu tiên cao nhất)
+   ========================================================================== */
+html, body { max-width: 100%; }
+.main-wrapper, .tab-content, .card, .grid-kpi > *, .grid-charts > *, .goal-card { min-width: 0; }
+.modal-backdrop { padding: 16px; }
+.modal { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; }
+.status-pill-group { flex-wrap: wrap; }
+.pill-btn { white-space: nowrap; }
+.calendar-toolbar { flex-wrap: wrap; }
+#tab-notes > div:first-child { flex-wrap: wrap; gap: 12px; }
+.credit-badge { max-width: 100%; }
+@media (hover: none) {
+    .card:hover, .note-card:hover, .nav-item:hover, .action-btn:hover, .btn-primary:hover { transform: none; }
+}
+
+/* Biểu đồ xu hướng không bị ép: Layout 1 cột và tách khỏi quy tắc cũ bị ghi đè */
+@media (max-width: 900px) {
+    .grid-charts { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ----- Điện thoại & máy tính bảng nhỏ ----- */
+@media (max-width: 768px) {
+    :root { --mbar: 66px; }
+    body { height: 100vh; height: 100dvh; }
+    .sidebar { height: auto; max-height: 100vh; max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain; }
+    .brand-header { position: sticky; top: 0; z-index: 2; min-height: var(--mbar); padding: 10px 16px; }
+    :root[data-theme="light"] .brand-header { background: #ffffff; }
+    :root[data-theme="dark"] .brand-header { background: #0f2233; }
+    .brand-header > div:nth-child(2) { min-width: 0; flex: 1; }
+    .brand-title { font-size: 20px; }
+    .brand-sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+    .main-wrapper { margin-top: var(--mbar); height: calc(100vh - var(--mbar)); height: calc(100dvh - var(--mbar)); }
+    .nav-list { flex: none; overflow: visible; }
+    .nav-item, .action-btn { min-height: 44px; }
+
+    .header-bar { flex-wrap: wrap; align-items: flex-start; }
+    .header-bar > div:first-child { min-width: 0; flex: 1 1 100%; }
+    .header-bar > div:first-child p { font-size: 11px !important; line-height: 1.4; }
+    .header-right { width: 100%; justify-content: flex-start; }
+    .credit-badge { padding: 7px 14px 7px 8px; border-radius: 18px; }
+    .credit-line1 { display: block; font-size: 10px; }
+    .credit-line2 { font-size: 12px; }
+
+    .content-area { overflow-x: hidden; }
+    .grid-kpi, .grid-charts { gap: 12px; }
+    .chart-box { height: 260px; }
+
+    select, input[type="text"], input[type="number"], input[type="date"], textarea { font-size: 16px; }
+
+    .filter-card { flex-direction: column; align-items: stretch; }
+    .filter-group { width: 100%; }
+    .filter-group select { flex: 1; min-width: 0; }
+    .filter-group[style] { min-width: 0 !important; }
+    .status-pill-group { width: 100%; }
+    .pill-btn { flex: 1 1 auto; text-align: center; }
+    .free-row > * { flex: 1 1 100%; min-width: 0 !important; }
+
+    .goal-form { align-items: stretch; }
+    .goal-form .goal-field { width: 100%; }
+    .goal-form input[type="number"] { width: 100%; }
+    .goal-form .btn-primary, .goal-form .btn-secondary { flex: 1 1 auto; justify-content: center; }
+    .goal-banner, .lang-banner { align-items: stretch; }
+    .lang-actions > button { flex: 1 1 auto; }
+
+    #tab-dashboard .table-responsive table, #goalCourses table { min-width: 560px; }
+    th { padding: 12px; } td { padding: 11px 12px; }
+
+    /* Lịch ghi chú chuyển sang dạng danh sách theo ngày */
+    .calendar-toolbar { gap: 8px; padding: 10px 12px; }
+    .calendar-toolbar h4 { flex: 1; min-width: 0; font-size: 15px; }
+    .calendar-today { margin-left: 0; }
+    .notes-calendar { grid-template-columns: minmax(0, 1fr); overflow: visible; gap: 10px; }
+    .calendar-weekday, .calendar-day-empty { display: none; }
+    .notes-calendar .calendar-day:not(.calendar-day-today):not(:has(.calendar-note)) { display: none; }
+    .notes-calendar:not(:has(.calendar-note))::before { content: "Không có ghi chú trong tháng này."; display: block; padding: 18px; text-align: center; font-size: 13px; color: var(--text-muted); background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: 14px; }
+    .calendar-day { min-height: 0; padding: 12px; }
+    .calendar-day-number { font-size: 13px; }
+    .calendar-day-number::before { content: "Ngày "; }
+    .calendar-day-today .calendar-day-number::after { content: " · Hôm nay"; color: var(--brand-primary); }
+    .calendar-note { font-size: 13px; padding: 10px; }
+    .calendar-note strong { font-size: 13px; }
+    .calendar-note-actions { gap: 16px; margin-top: 8px; }
+    .calendar-note-actions button { font-size: 13px; padding: 6px 4px; }
+    .calendar-due-badge { font-size: 10px; }
+}
+
+/* ----- Bảng môn học chuyển thành thẻ trên điện thoại ----- */
+@media screen and (max-width: 640px) {
+    #tab-curriculum .table-responsive { border: 0; overflow: visible; }
+    #tab-curriculum table, #tab-curriculum tbody { display: block; }
+    #tab-curriculum thead { display: none; }
+    #courseTableBody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; padding: 16px; border-bottom: 1px solid var(--border-color); }
+    #courseTableBody tr:hover td { background: none; }
+    #courseTableBody td { display: block; padding: 0; border: 0; min-width: 0; background: none !important; overflow-wrap: anywhere; }
+    #courseTableBody td[colspan] { grid-column: 1 / -1; }
+    #courseTableBody td:nth-child(1), #courseTableBody td:nth-child(2) { grid-column: 1 / -1; }
+    #courseTableBody td:nth-child(2) { font-size: 14px; }
+    #courseTableBody td:nth-child(n+3):not([colspan])::before { content: attr(data-l); display: block; margin-bottom: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--text-muted); letter-spacing: .4px; }
+    #courseTableBody td:nth-child(3)::before { content: "Số TC"; }
+    #courseTableBody td:nth-child(4)::before { content: "Loại HP"; }
+    #courseTableBody td:nth-child(5)::before { content: "Khối kiến thức"; }
+    #courseTableBody td:nth-child(6)::before { content: "Học kỳ"; }
+    #courseTableBody td:nth-child(7)::before { content: "Trạng thái"; }
+    #courseTableBody td:nth-child(8)::before { content: "Điểm (hệ 10)"; }
+    #courseTableBody td:nth-child(9)::before { content: "Hệ 4"; }
+    #courseTableBody td:nth-child(10)::before { content: "Điểm chữ"; }
+    #courseTableBody td:nth-child(11)::before { content: "Kết quả"; }
+    #courseTableBody td select, #courseTableBody td input { width: 100% !important; }
+}
+
+@media (max-width: 480px) {
+    .content-area { padding: 12px; }
+    .card { padding: 16px; }
+    .block-grid, .elective-grid { grid-template-columns: minmax(0, 1fr); }
+    .goal-stats { grid-template-columns: minmax(0, 1fr); }
+    .sem-pills { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+    .header-title { font-size: 17px; }
+    .modal { padding: 20px; border-radius: 18px; }
+    .goal-title { font-size: 16px; }
+    .kpi-value { font-size: 28px; }
+    .lang-banner .btn-secondary, .goal-banner .btn-secondary { width: 100%; }
+}
+
+/* Biểu đồ xu hướng GPA: giữ độ rộng tối thiểu và cuộn ngang thay vì dồn nhãn */
+@media (max-width: 600px) {
+    .card:has(#gpaTrendCanvas) { overflow-x: auto; }
+    .chart-box:has(#gpaTrendCanvas) { min-width: 440px; }
+}
+</style>
+</head>
+<body>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+        <div class="brand-header">
+            <div class="brand-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="44" height="44" role="img" aria-label="Logo GPAim">
+  <defs>
+    <linearGradient id="hdbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1230"/><stop offset="1" stop-color="#26308f"/></linearGradient>
+    <linearGradient id="hdrg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#7c6cf5"/></linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="13" fill="url(#hdbg)"/>
+  <rect x=".6" y=".6" width="46.8" height="46.8" rx="12.4" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="1.2"/>
+  <circle cx="24" cy="24" r="15.5" fill="none" stroke="url(#hdrg)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="20.6 3.6" stroke-dashoffset="-1.8"/>
+  <g stroke="url(#hdrg)" stroke-width="2.2" stroke-linecap="round"><line x1="34.50" y1="24.00" x2="43.50" y2="24.00"/><line x1="24.00" y1="34.50" x2="24.00" y2="43.50"/><line x1="13.50" y1="24.00" x2="4.50" y2="24.00"/><line x1="24.00" y1="13.50" x2="24.00" y2="4.50"/></g>
+  <path d="M16.8 30.5 L24 18.5 L31.2 30.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="24" cy="27.2" r="2.1" fill="#22d3ee"/>
+</svg>
+            </div>
+            <div>
+                <div class="brand-title">GP<span class="brand-accent">Aim</span></div>
+                <div class="brand-sub">Quản lý tiến độ học tập - Nhóm 04</div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+
+        <nav class="nav-list" id="navMenuList">
+            <button class="nav-item active" onclick="switchTab('dashboard')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                <span>Dashboard Tổng Quan</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('curriculum')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <span>CTĐT & Danh sách Môn</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('target')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <span>Dự báo Mục tiêu GPA</span>
+            </button>
+            <button class="nav-item" onclick="switchTab('notes')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3z"/><polyline points="14 3 14 8 19 8"/></svg>
+                <span>Mốc thời gian & Ghi chú</span>
+            </button>
+
+            <button class="nav-item" onclick="switchTab('language')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></svg>
+                <span>Chứng chỉ Ngoại ngữ</span>
+            </button>
+
+            <div class="nav-divider">Hệ thống & Dữ liệu</div>
+            <button class="action-btn" onclick="exportJSON()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Xuất file JSON</span>
+            </button>
+            <button class="action-btn" onclick="exportTranscriptPDF()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span>Xuất bảng điểm PDF</span>
+            </button>
+            <button class="action-btn" onclick="exportCSV()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                <span>Xuất bảng điểm CSV</span>
+            </button>
+            <label class="action-btn" style="cursor: pointer;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Nhập file JSON</span>
+                <input type="file" id="importFileInput" accept=".json" style="display: none;" onchange="importJSON(event)">
+            </label>
+            <button class="action-btn" onclick="printReport()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span>In báo cáo (PDF)</span>
+            </button>
+            <button class="action-btn danger" onclick="resetDataConfirm()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset dữ liệu</span>
+            </button>
+        </nav>
+
+
+        <div class="theme-footer">
+            <span style="font-size: 12px; color: var(--text-secondary);">Giao diện</span>
+            <button onclick="toggleDarkMode()">
+                <span id="themeLabel">Dark Mode</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-wrapper">
+        <header class="header-bar no-print">
+            <div>
+                <h2 id="pageTitle" class="header-title">Dashboard Tổng Quan</h2>
+                <p style="font-size: 12px; color: var(--text-muted); font-weight: 500;">Chương trình Đào tạo Ngành Hệ thống Thông tin - Khóa 2025</p>
+            </div>
+            <div class="header-right">
+                <div class="credit-badge" title="Đồ án Nhập môn Công nghệ thông tin">
+                    <span class="credit-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </span>
+                    <span class="credit-text">
+                        <span class="credit-line1">Đồ án Nhập môn Công nghệ thông tin</span>
+                        <span class="credit-line2">Nhóm 04 · ĐH KHTN, ĐHQG-HCM</span>
+                    </span>
+                </div>
+            <div class="sync-pill" style="font-size: 12px; font-weight: 600; color: var(--success); display: flex; align-items: center; gap: 6px; background: var(--success-light); padding: 6px 12px; border-radius: 20px;">
+                    <span style="width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block;"></span>
+                    <span>Offline LocalStorage Sync</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-area">
+
+            <!-- TAB 1: DASHBOARD -->
+            <section id="tab-dashboard" class="tab-content active">
+                <div class="grid-kpi">
+                    <div class="card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">GPA Tích lũy (Hệ 4)</span>
+                            <span class="badge badge-purple">Khóa 2025</span>
+                        </div>
+                        <div class="kpi-value" id="kpiGpa" style="color: var(--brand-primary);">0.00</div>
+                        <div class="kpi-sub" id="kpiGpaSub">Chưa có môn nào có điểm</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Tín chỉ Đạt / 138 TC</span>
+                            <span class="badge badge-success">Chuyên môn</span>
+                        </div>
+                        <div class="kpi-value" id="kpiCredits" style="color: var(--success);">0 / 138</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="kpiProgressCreditBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Tiến độ Hoàn thành</span>
+                            <span class="badge badge-warning">Tỷ lệ %</span>
+                        </div>
+                        <div class="kpi-value" id="kpiProgressPercent" style="color: var(--warning);">0.0%</div>
+                        <div class="kpi-sub">Loại trừ GDTC, GDQP, Anh văn</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Cảnh báo Tốt nghiệp</span>
+                        </div>
+                        <div id="kpiStatusBadge" class="badge badge-warning" style="margin-top: 10px; font-size: 13px; padding: 6px 12px;">
+                            Đang học tập
+                        </div>
+                        <div class="kpi-sub" id="kpiStatusDetail">Cần duy trì GPA ≥ 2.00</div>
+                    </div>
+                </div>
+
+                <div id="goalAlertBanner"></div>
+
+                <div id="blockProgress" class="card"></div>
+
+                <div class="grid-charts">
+                    <div class="card">
+                        <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 16px;">Biểu đồ GPA Trend qua các Học kỳ</h3>
+                        <div class="chart-box">
+                            <canvas id="gpaTrendCanvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 16px;">Tỷ lệ Hoàn thành Khối Kiến thức</h3>
+                        <div class="chart-box">
+                            <canvas id="knowledgeCanvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 18px 24px; border-bottom: 1px solid var(--border-color); font-weight: 700; font-size: 15px;">
+                        Tóm tắt kết quả theo từng Học kỳ
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Học kỳ</th>
+                                    <th>Số môn</th>
+                                    <th>TC Kế hoạch</th>
+                                    <th>TC Đạt</th>
+                                    <th>ĐTB HK (Hệ 4)</th>
+                                    <th>ĐTB Tích lũy</th>
+                                </tr>
+                            </thead>
+                            <tbody id="semesterSummaryTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: CTĐT & MÔN HỌC -->
+            <section id="tab-curriculum" class="tab-content">
+                <div class="card filter-card">
+                    <div class="filter-group">
+                        <label>Học kỳ:</label>
+                        <select id="filterSemester" onchange="renderCourses()">
+                            <option value="ALL">Tất cả (HK1 - HK8)</option>
+                            <option value="1">Học kỳ 1</option><option value="2">Học kỳ 2</option>
+                            <option value="3">Học kỳ 3</option><option value="4">Học kỳ 4</option>
+                            <option value="5">Học kỳ 5</option><option value="6">Học kỳ 6</option>
+                            <option value="7">Học kỳ 7</option><option value="8">Học kỳ 8</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Khối kiến thức:</label>
+                        <select id="filterCategory" onchange="renderCourses()">
+                            <option value="ALL">Tất cả khối kiến thức</option>
+                            <option value="Đại cương">Giáo dục đại cương</option>
+                            <option value="Cơ sở ngành">Cơ sở ngành</option>
+                            <option value="Chuyên ngành">Chuyên ngành</option>
+                            <option value="Tốt nghiệp">Tốt nghiệp</option>
+                            <option value="Môn điều kiện">Môn điều kiện phụ (GDTC/GDQP/AV)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group" style="flex: 1; min-width: 220px;">
+                        <input type="text" id="searchCourse" placeholder="Tìm tên môn hoặc mã HP..." oninput="renderCourses()" style="width: 100%;">
+                    </div>
+
+                    <div class="status-pill-group" id="quickStatusFilters">
+                        <button class="pill-btn active" onclick="setQuickStatus('ALL', this)">Tất cả</button>
+                        <button class="pill-btn" onclick="setQuickStatus('Đã xong', this)">Đã xong</button>
+                        <button class="pill-btn" onclick="setQuickStatus('Phải học lại', this)">Phải học lại</button>
+                        <button class="pill-btn" onclick="setQuickStatus('Đang học', this)">Đang học</button>
+                        <button class="pill-btn" onclick="setQuickStatus('Chưa học', this)">Chưa học</button>
+                    </div>
+                </div>
+
+                <div class="card elective-card">
+                    <div class="elective-title">Thêm môn tự chọn tự do (Phụ lục 1 — tối đa 10 TC được tính vào tự chọn tự do)</div>
+                    <div class="free-row">
+                        <input type="text" id="freeCourseInput" list="freeElectiveList" placeholder="Gõ mã hoặc tên môn, ví dụ: CSC14005 hoặc học máy..." autocomplete="off">
+                        <datalist id="freeElectiveList"></datalist>
+                        <select id="freeCourseSemester">
+                            <option value="1">Học kỳ 1</option><option value="2">Học kỳ 2</option>
+                            <option value="3">Học kỳ 3</option><option value="4">Học kỳ 4</option>
+                            <option value="5">Học kỳ 5</option><option value="6">Học kỳ 6</option>
+                            <option value="7" selected>Học kỳ 7</option><option value="8">Học kỳ 8</option>
+                        </select>
+                        <button class="btn-primary" onclick="addFreeCourse()">+ Thêm môn</button>
+                    </div>
+                </div>
+
+                <div id="electiveSummary" class="card elective-card"></div>
+
+                <div id="langCertBanner"></div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mã HP</th>
+                                    <th>Tên Học Phần</th>
+                                    <th>Số TC</th>
+                                    <th>Loại HP</th>
+                                    <th>Khối kiến thức</th>
+                                    <th>HK</th>
+                                    <th>Trạng thái</th>
+                                    <th style="width: 100px;">Điểm 10</th>
+                                    <th>Hệ 4</th>
+                                    <th>Điểm chữ</th>
+                                    <th>Kết quả</th>
+                                </tr>
+                            </thead>
+                            <tbody id="courseTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: DỰ BÁO MỤC TIÊU GPA THEO HỌC KỲ -->
+            <section id="tab-target" class="tab-content">
+                <div class="card goal-card" id="goalOverall"></div>
+                <div class="card goal-card" id="goalPlanner"></div>
+                <div class="card goal-card" id="goalCourses" style="padding: 0;"></div>
+            </section>
+
+            <!-- TAB: KIỂM TRA CHỨNG CHỈ NGOẠI NGỮ -->
+            <section id="tab-language" class="tab-content">
+                <div class="card" style="max-width: 720px; margin: 0 auto;">
+                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Kiểm tra Chứng chỉ Ngoại ngữ đầu ra</h3>
+                    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 22px; line-height: 1.6;">
+                        Chuẩn đầu ra ngoại ngữ là tiếng Anh, tối thiểu bậc 3/6 theo Khung năng lực ngoại ngữ 6 bậc (TT33/2026) hoặc chứng chỉ tương đương do Trường ĐH KHTN công nhận (CTĐT mục 1.3).
+                        Nếu chứng chỉ đạt, các học phần Ngoại ngữ sẽ được ẩn khỏi danh sách môn. Nếu chưa đạt hoặc chưa kiểm tra, các học phần vẫn được giữ và không có trạng thái "Miễn học".
+                    </p>
+                    <div class="lang-form">
+                        <div class="lang-field">
+                            <label for="langCertType">Loại chứng chỉ</label>
+                            <select id="langCertType" onchange="renderLangCertFields()"></select>
+                        </div>
+                        <div id="langCertFields" class="lang-form"></div>
+                    </div>
+                    <div class="lang-actions">
+                        <button class="btn-primary" onclick="checkLangCert()">Kiểm tra chứng chỉ</button>
+                        <button class="btn-secondary" onclick="clearLangCert()">Xóa kết quả kiểm tra</button>
+                    </div>
+                    <div id="langCertResult"></div>
+                    <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 28px 0 8px;">Điểm tối thiểu theo CTĐT (tương đương bậc 3/6)</div>
+                    <div class="table-responsive"><table><tbody id="langRequirementTable"></tbody></table></div>
+                </div>
+            </section>
+
+            <!-- TAB 4: MỐC THỜI GIAN & GHI CHÚ -->
+            <section id="tab-notes" class="tab-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h3 style="font-size: 18px; font-weight: 700;">Ghi chú & Mốc Thời Gian Học Tập</h3>
+                    <button class="btn-primary" onclick="openNoteModal()">+ Thêm Ghi Chú</button>
+                </div>
+
+                <section class="note-reminders" id="noteReminders" aria-live="polite" aria-label="Nhắc hạn sắp tới"></section>
+                <div class="calendar-toolbar no-print">
+                    <button class="calendar-nav" onclick="changeNotesMonth(-1)" aria-label="Tháng trước">‹</button>
+                    <h4 id="notesCalendarMonth"></h4>
+                    <button class="calendar-nav" onclick="changeNotesMonth(1)" aria-label="Tháng sau">›</button>
+                    <button class="calendar-today" onclick="goToNotesToday()">Hôm nay</button>
+                </div>
+                <div class="notes-calendar" id="notesGrid"></div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- MODAL ADD/EDIT NOTE -->
+    <div class="modal-backdrop" id="noteModal">
+        <div class="modal">
+            <h3 id="noteModalTitle" style="font-size: 18px; font-weight: 700; margin-bottom: 20px;">Thêm Ghi Chú Mới</h3>
+            <input type="hidden" id="noteIdInput">
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 6px;">Mốc ngày:</label>
+                <input type="date" id="noteDateInput" style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 6px;">Tiêu đề mốc thời gian:</label>
+                <input type="text" id="noteTitleInput" placeholder="VD: Lịch thi cuối kỳ, Đăng ký môn..." style="width: 100%;">
+            </div>
+            <div style="margin-bottom: 16px;">
+                <label style="display: block; margin-bottom: 6px;">Nội dung chi tiết:</label>
+                <textarea id="noteContentInput" rows="3" placeholder="Nhập chi tiết..." style="width: 100%; resize: vertical;"></textarea>
+            </div>
+            <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" id="noteHighlightInput" style="width: 18px; height: 18px; accent-color: var(--brand-primary); cursor: pointer;">
+                <label for="noteHighlightInput" style="text-transform: none; font-size: 13px; color: var(--text-primary); cursor: pointer;">Highlight nổi bật ghi chú này</label>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button onclick="closeNoteModal()" style="padding: 10px 18px; background: none; border: 1px solid var(--border-color); color: var(--text-secondary); border-radius: 12px; cursor: pointer; font-weight: 600;">Hủy</button>
+                <button onclick="saveNote()" class="btn-primary">Lưu ghi chú</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIRM DELETE -->
+    <div class="modal-backdrop" id="confirmModal">
+        <div class="modal" style="text-align: center; max-width: 380px;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--danger);">Xác nhận Xóa Ghi Chú?</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.5;">Ghi chú sẽ bị xóa khỏi LocalStorage và không thể phục hồi.</p>
+            <div style="display: flex; justify-content: center; gap: 12px;">
+                <button onclick="closeConfirmModal()" style="padding: 10px 18px; background: none; border: 1px solid var(--border-color); color: var(--text-secondary); border-radius: 12px; cursor: pointer; font-weight: 600;">Hủy</button>
+                <button id="confirmDeleteBtn" style="padding: 10px 18px; background: var(--danger); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600;">Đồng ý Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+const CURRICULUM_VERSION = "2848-QD-KHTN-K2025-v4";
+
+const DEFAULT_CURRICULUM = [
+    // ===== HK 1 =====
+    { id: "BAA00021", code: "BAA00021", name: "Thể dục 1", credits: 2, category: "Môn điều kiện", semester: 1, isSub: true, group: null },
+    { id: "ADD00031", code: "ADD00031", name: "Anh văn 1", credits: 3, category: "Môn điều kiện", semester: 1, isSub: true, group: null },
+    { id: "MTH00021", code: "MTH00021", name: "Vi tích phân 1", credits: 4, category: "Đại cương", semester: 1, isSub: false, group: null },
+    { id: "MTH00045", code: "MTH00045", name: "Toán rời rạc", credits: 4, category: "Đại cương", semester: 1, isSub: false, group: null },
+    { id: "CSC00004", code: "CSC00004", name: "Nhập môn công nghệ thông tin", credits: 4, category: "Đại cương", semester: 1, isSub: false, group: null },
+    { id: "CSC10012", code: "CSC10012", name: "Cơ sở lập trình", credits: 4, category: "Cơ sở ngành", semester: 1, isSub: false, group: null },
+
+    // ===== HK 2 =====
+    { id: "BAA00022", code: "BAA00022", name: "Thể dục 2", credits: 2, category: "Môn điều kiện", semester: 2, isSub: true, group: null },
+    { id: "ADD00032", code: "ADD00032", name: "Anh văn 2", credits: 3, category: "Môn điều kiện", semester: 2, isSub: true, group: null },
+    { id: "BAA00004", code: "BAA00004", name: "Pháp luật đại cương", credits: 3, category: "Đại cương", semester: 2, isSub: false, group: null },
+    { id: "MTH00022", code: "MTH00022", name: "Vi tích phân 2", credits: 4, category: "Đại cương", semester: 2, isSub: false, group: null },
+    { id: "MTH00035", code: "MTH00035", name: "Đại số tuyến tính", credits: 4, category: "Đại cương", semester: 2, isSub: false, group: null },
+    { id: "CSC10004", code: "CSC10004", name: "Cấu trúc dữ liệu và giải thuật", credits: 4, category: "Cơ sở ngành", semester: 2, isSub: false, group: null },
+    { id: "CHE00001", code: "CHE00001", name: "Hóa đại cương 1", credits: 3, category: "Đại cương", semester: 2, isSub: false, group: "KHTN" },
+    { id: "CHE00081", code: "CHE00081", name: "Thực hành Hóa đại cương 1", credits: 2, category: "Đại cương", semester: 2, isSub: false, group: "KHTN" },
+    { id: "BIO00001", code: "BIO00001", name: "Sinh đại cương 1", credits: 3, category: "Đại cương", semester: 2, isSub: false, group: "KHTN" },
+    { id: "BIO00081", code: "BIO00081", name: "Thực tập Sinh đại cương 1", credits: 1, category: "Đại cương", semester: 2, isSub: false, group: "KHTN" },
+    { id: "PHY00001", code: "PHY00001", name: "Vật lý đại cương 1 (Cơ - Nhiệt)", credits: 3, category: "Đại cương", semester: 2, isSub: false, group: "KHTN" },
+    { id: "PHY00081", code: "PHY00081", name: "Thực hành Vật lý đại cương", credits: 2, category: "Đại cương", semester: 2, isSub: false, group: "KHTN" },
+
+    // ===== HK 3 =====
+    { id: "ADD00033", code: "ADD00033", name: "Anh văn 3", credits: 3, category: "Môn điều kiện", semester: 3, isSub: true, group: null },
+    { id: "BAA00030", code: "BAA00030", name: "Giáo dục quốc phòng – An ninh", credits: 4, category: "Môn điều kiện", semester: 3, isSub: true, group: null },
+    { id: "MTH00044", code: "MTH00044", name: "Xác suất thống kê", credits: 4, category: "Đại cương", semester: 3, isSub: false, group: null },
+    { id: "MTH00050", code: "MTH00050", name: "Toán học tổ hợp", credits: 4, category: "Đại cương", semester: 3, isSub: false, group: null },
+    { id: "CSC10003", code: "CSC10003", name: "Phương pháp lập trình hướng đối tượng", credits: 4, category: "Cơ sở ngành", semester: 3, isSub: false, group: null },
+    { id: "CSC10008", code: "CSC10008", name: "Mạng máy tính", credits: 4, category: "Cơ sở ngành", semester: 3, isSub: false, group: null },
+    { id: "CHE00002", code: "CHE00002", name: "Hóa đại cương 2", credits: 3, category: "Đại cương", semester: 3, isSub: false, group: "KHTN" },
+    { id: "CHE00082", code: "CHE00082", name: "Thực hành Hóa đại cương 2", credits: 2, category: "Đại cương", semester: 3, isSub: false, group: "KHTN" },
+    { id: "BIO00002", code: "BIO00002", name: "Sinh đại cương 2", credits: 3, category: "Đại cương", semester: 3, isSub: false, group: "KHTN" },
+    { id: "BIO00082", code: "BIO00082", name: "Thực tập Sinh đại cương 2", credits: 1, category: "Đại cương", semester: 3, isSub: false, group: "KHTN" },
+    { id: "PHY00002", code: "PHY00002", name: "Vật lý đại cương 2 (Điện từ - Quang)", credits: 3, category: "Đại cương", semester: 3, isSub: false, group: "KHTN" },
+
+    // ===== HK 4 =====
+    { id: "ADD00034", code: "ADD00034", name: "Anh văn 4", credits: 3, category: "Môn điều kiện", semester: 4, isSub: true, group: null },
+    { id: "BAA00101", code: "BAA00101", name: "Triết học Mác - Lênin", credits: 3, category: "Đại cương", semester: 4, isSub: false, group: null },
+    { id: "BAA00005", code: "BAA00005", name: "Kinh tế đại cương", credits: 2, category: "Đại cương", semester: 4, isSub: false, group: "KHXH" },
+    { id: "BAA00006", code: "BAA00006", name: "Tâm lý đại cương", credits: 2, category: "Đại cương", semester: 4, isSub: false, group: "KHXH" },
+    { id: "BAA00007", code: "BAA00007", name: "Phương pháp luận sáng tạo", credits: 2, category: "Đại cương", semester: 4, isSub: false, group: "KHXH" },
+    { id: "MTH00051", code: "MTH00051", name: "Toán ứng dụng và thống kê", credits: 4, category: "Đại cương", semester: 4, isSub: false, group: "TOAN" },
+    { id: "MTH00052", code: "MTH00052", name: "Phương pháp tính", credits: 4, category: "Đại cương", semester: 4, isSub: false, group: "TOAN" },
+    { id: "MTH00053", code: "MTH00053", name: "Lý thuyết số", credits: 4, category: "Đại cương", semester: 4, isSub: false, group: "TOAN" },
+    { id: "CSC10014", code: "CSC10014", name: "Tư duy tính toán", credits: 4, category: "Cơ sở ngành", semester: 4, isSub: false, group: null },
+    { id: "CSC10006", code: "CSC10006", name: "Cơ sở dữ liệu", credits: 4, category: "Cơ sở ngành", semester: 4, isSub: false, group: null },
+    { id: "CSC10009", code: "CSC10009", name: "Hệ thống máy tính", credits: 2, category: "Cơ sở ngành", semester: 4, isSub: false, group: null },
+    { id: "CSC10121", code: "CSC10121", name: "Kỹ năng mềm", credits: 3, category: "Chuyên ngành", semester: 4, isSub: false, group: "NGANH" },
+
+    // ===== HK 5 =====
+    { id: "BAA00102", code: "BAA00102", name: "Kinh tế chính trị Mác – Lênin", credits: 2, category: "Đại cương", semester: 5, isSub: false, group: null },
+    { id: "GEO00002", code: "GEO00002", name: "Khoa học Trái đất", credits: 2, category: "Đại cương", semester: 5, isSub: false, group: "MT" },
+    { id: "ENV00001", code: "ENV00001", name: "Môi trường đại cương", credits: 2, category: "Đại cương", semester: 5, isSub: false, group: "MT" },
+    { id: "ENV00003", code: "ENV00003", name: "Con người và môi trường", credits: 2, category: "Đại cương", semester: 5, isSub: false, group: "MT" },
+    { id: "CSC10007", code: "CSC10007", name: "Hệ điều hành", credits: 4, category: "Cơ sở ngành", semester: 5, isSub: false, group: null },
+    { id: "CSC13002", code: "CSC13002", name: "Nhập môn công nghệ phần mềm", credits: 4, category: "Cơ sở ngành", semester: 5, isSub: false, group: null },
+    { id: "CSC10105", code: "CSC10105", name: "Nhập môn tư duy thuật toán", credits: 4, category: "Chuyên ngành", semester: 5, isSub: false, group: "NGANH" },
+    { id: "CSC12002", code: "CSC12002", name: "Cơ sở dữ liệu nâng cao", credits: 4, category: "Chuyên ngành", semester: 5, isSub: false, group: null },
+    { id: "CSC12003", code: "CSC12003", name: "Hệ quản trị cơ sở dữ liệu", credits: 4, category: "Chuyên ngành", semester: 5, isSub: false, group: null },
+    { id: "CSC12004", code: "CSC12004", name: "Phân tích thiết kế hệ thống thông tin", credits: 4, category: "Chuyên ngành", semester: 5, isSub: false, group: null },
+
+    // ===== HK 6 =====
+    { id: "BAA00103", code: "BAA00103", name: "Chủ nghĩa xã hội khoa học", credits: 2, category: "Đại cương", semester: 6, isSub: false, group: null },
+    { id: "CSC14003", code: "CSC14003", name: "Cơ sở trí tuệ nhân tạo", credits: 4, category: "Cơ sở ngành", semester: 6, isSub: false, group: null },
+    { id: "CSC12005", code: "CSC12005", name: "Phát triển ứng dụng hệ thống thông tin hiện đại", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: null },
+    { id: "CSC10102", code: "CSC10102", name: "Kiến tập nghề nghiệp", credits: 2, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC10103", code: "CSC10103", name: "Khởi nghiệp", credits: 3, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC10104", code: "CSC10104", name: "Quy hoạch tuyến tính", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC10106", code: "CSC10106", name: "Thuật toán tổ hợp và ứng dụng", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC10107", code: "CSC10107", name: "Thực tập thực tế", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC12001", code: "CSC12001", name: "An toàn và bảo mật dữ liệu trong hệ thống thông tin", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC12105", code: "CSC12105", name: "Thương mại điện tử", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC12106", code: "CSC12106", name: "Tương tác người - máy", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+    { id: "CSC17106", code: "CSC17106", name: "Xử lý phân tích dữ liệu trực tuyến", credits: 4, category: "Chuyên ngành", semester: 6, isSub: false, group: "NGANH" },
+
+    // ===== HK 7 =====
+    { id: "BAA00104", code: "BAA00104", name: "Lịch sử Đảng Cộng sản Việt Nam", credits: 2, category: "Đại cương", semester: 7, isSub: false, group: null },
+    { id: "CSC10108", code: "CSC10108", name: "Trực quan hóa dữ liệu", credits: 4, category: "Chuyên ngành", semester: 7, isSub: false, group: "NGANH" },
+    { id: "CSC17101", code: "CSC17101", name: "Hệ thống tư vấn", credits: 4, category: "Chuyên ngành", semester: 7, isSub: false, group: "NGANH" },
+    { id: "CSC12107", code: "CSC12107", name: "Hệ thống thông tin phục vụ trí tuệ kinh doanh", credits: 4, category: "Tốt nghiệp", semester: 7, isSub: false, group: "TN" },
+    { id: "CSC12108", code: "CSC12108", name: "Ứng dụng phân tán", credits: 4, category: "Tốt nghiệp", semester: 7, isSub: false, group: "TN" },
+    { id: "CSC12111", code: "CSC12111", name: "Quản trị cơ sở dữ liệu hiện đại", credits: 4, category: "Tốt nghiệp", semester: 7, isSub: false, group: "TN" },
+
+    // ===== HK 8 ===== (3 phương án tốt nghiệp xuất hiện ở cả HK7 và HK8 trong PDF: chọn HK thực hiện ở cột HK)
+    { id: "BAA00003", code: "BAA00003", name: "Tư tưởng Hồ Chí Minh", credits: 2, category: "Đại cương", semester: 8, isSub: false, group: null },
+    { id: "CSC10251", code: "CSC10251", name: "Khóa luận tốt nghiệp", credits: 10, category: "Tốt nghiệp", semester: 8, isSub: false, group: "TN", altSemesters: [7, 8] },
+    { id: "CSC10252", code: "CSC10252", name: "Thực tập tốt nghiệp", credits: 10, category: "Tốt nghiệp", semester: 8, isSub: false, group: "TN", altSemesters: [7, 8] },
+    { id: "CSC10204", code: "CSC10204", name: "Thực tập dự án tốt nghiệp", credits: 6, category: "Tốt nghiệp", semester: 8, isSub: false, group: "TN", altSemesters: [7, 8] }
+];
+
+/* ==========================================
+   CẤU HÌNH THEO CTĐT (QĐ 2848/QĐ-KHTN, KHÓA 2025)
+   ========================================== */
+const TOTAL_CREDITS = 138;
+const STORAGE_KEY = 'student_httt_k2025_vanilla_state';
+const PASS_SCORE = 5.0; // điểm hệ 10 tối thiểu để đạt môn (dưới mức này: "Phải học lại" / "Không đạt")
+const STATUS_LIST = ['Chưa học', 'Đang học', 'Đã xong', 'Phải học lại'];
+const EXEMPT_STATUS = 'Miễn học'; // chỉ dành cho GDQP-AN; GDTC và Ngoại ngữ (Anh văn) không có trạng thái này
+const GDTC_ID_RE = /^BAA0002/;
+
+// Môn được phép chọn "Miễn học": chỉ GDQP-AN.
+// GDTC và các học phần Ngoại ngữ (Anh văn) không có trạng thái này; ngoại ngữ được xét qua mục kiểm tra chứng chỉ.
+function canBeExempt(c) {
+    if (!c || !c.isSub || GDTC_ID_RE.test(c.id)) return false;
+    return !isLanguageCourse(c);
+}
+
+// TC kế hoạch từng học kỳ theo mục 8 của PDF (chưa kể Anh văn, Thể dục, GDQP)
+const PLAN_TOTALS = [16, 21, 22, 19, 15, 15, 15, 15];
+
+// Yêu cầu từng khối kiến thức theo mục 6 của PDF
+const CATEGORY_INFO = [
+    { key: 'Đại cương',    label: 'Giáo dục đại cương', required: 56, color: '#3b82f6' },
+    { key: 'Cơ sở ngành',  label: 'Cơ sở ngành',        required: 38, color: '#10b981' },
+    { key: 'Chuyên ngành', label: 'Ngành / Chuyên ngành', required: 34, color: '#8b5cf6' },
+    { key: 'Tốt nghiệp',   label: 'Tốt nghiệp',         required: 10, color: '#f59e0b' }
+];
+
+// pick = số TC phải tích lũy trong nhóm; coreMin = số TC tối thiểu phải lấy từ danh sách ngành (không tính môn thêm từ Phụ lục 1)
+const ELECTIVE_GROUPS = {
+    KHTN:  { label: 'KHTN tự chọn (HK2-HK3)', pick: 6, category: 'Đại cương', hint: 'Chọn đủ 6 TC trong 11 học phần Hóa / Sinh / Lý' },
+    KHXH:  { label: 'KHXH - Kinh tế - Kỹ năng (HK4)', pick: 2, category: 'Đại cương', hint: 'Chọn 01 học phần (2 TC)' },
+    TOAN:  { label: 'Toán tự chọn (HK4)', pick: 4, category: 'Đại cương', hint: 'Chọn 01 học phần (4 TC)' },
+    MT:    { label: 'Môi trường / Trái đất (HK5)', pick: 2, category: 'Đại cương', hint: 'Chọn 01 học phần (2 TC)' },
+    NGANH: { label: 'Ngành tự chọn + tự chọn tự do', pick: 18, coreMin: 8, category: 'Chuyên ngành',
+             hint: 'Tối thiểu 8 TC từ danh sách ngành (7.2.2.2); 10 TC còn lại chọn tự do (7.2.2.3, gồm Phụ lục 1)' },
+    TN:    { label: 'Tốt nghiệp (HK7-HK8)', pick: 10, category: 'Tốt nghiệp',
+             hint: 'Chọn 1 trong 3 phương án: Khóa luận (10 TC) / Thực tập tốt nghiệp (10 TC) / Thực tập dự án (6 TC) + 1 học phần 4 TC (HK7). Có thể thực hiện ở HK7 hoặc HK8.' }
+};
+
+// Phụ lục 1: các học phần tự chọn tự do không nằm sẵn trong kế hoạch (đều 4 TC)
+const FREE_ELECTIVES = [
+    ["CSC13003", "Kiểm thử phần mềm"], ["CSC13005", "Phân tích và quản lý yêu cầu phần mềm"],
+    ["CSC13006", "Quản lý dự án phần mềm"], ["CSC13007", "Phát triển game"],
+    ["CSC13008", "Phát triển ứng dụng web"], ["CSC13009", "Phát triển phần mềm cho thiết bị di động"],
+    ["CSC13010", "Thiết kế phần mềm"], ["CSC13106", "Kiến trúc phần mềm"],
+    ["CSC13112", "Thiết kế giao diện"], ["CSC13001", "Lập trình Windows"],
+    ["CSC13101", "Các chủ đề nâng cao trong Công nghệ phần mềm"], ["CSC13102", "Lập trình ứng dụng Java"],
+    ["CSC13103", "Nhập môn hệ thống phân tán"], ["CSC13107", "Mẫu thiết kế hướng đối tượng và ứng dụng"],
+    ["CSC13117", "Phát triển game nâng cao"], ["CSC18001", "Nhập môn học sâu"],
+    ["CSC18002", "Nhập môn Trí tuệ nhân tạo tạo sinh"], ["CSC18101", "Trí tuệ nhân tạo cho an ninh thông tin"],
+    ["CSC18102", "Phương pháp toán cho tối ưu"], ["CSC18103", "Trí tuệ bầy đàn"],
+    ["CSC18104", "Nhập môn hệ thống đa tác nhân"], ["CSC18106", "Mô hình ngôn ngữ lớn"],
+    ["CSC18107", "Các chủ đề chọn lọc trong Trí tuệ nhân tạo"], ["CSC14001", "Automata và ngôn ngữ hình thức"],
+    ["CSC14002", "Các hệ cơ sở tri thức"], ["CSC14004", "Khai thác dữ liệu và ứng dụng"],
+    ["CSC14005", "Nhập môn học máy"], ["CSC14006", "Nhận dạng"],
+    ["CSC14101", "Ẩn dữ liệu và chia sẻ thông tin"], ["CSC14111", "Nhập môn thiết kế và phân tích giải thuật"],
+    ["CSC14118", "Nhập môn dữ liệu lớn"], ["CSC14120", "Lập trình song song"],
+    ["CSC14008", "Phương pháp nghiên cứu khoa học"], ["CSC14105", "Khoa học về web"],
+    ["CSC14112", "Sinh trắc học"], ["CSC14113", "Trình biên dịch"],
+    ["CSC14117", "Nhập môn lập trình kết nối vạn vật"], ["CSC14007", "Nhập môn phân tích độ phức tạp thuật toán"],
+    ["CSC15001", "An ninh máy tính"], ["CSC15002", "Bảo mật cơ sở dữ liệu"],
+    ["CSC15003", "Mã hóa ứng dụng"], ["CSC15004", "Học thống kê"],
+    ["CSC15005", "Nhập môn mã hóa – mật mã"], ["CSC15006", "Nhập môn xử lý ngôn ngữ tự nhiên"],
+    ["CSC15007", "Thống kê máy tính và ứng dụng"], ["CSC15009", "Xử lý tín hiệu số"],
+    ["CSC15011", "Nhập môn ngôn ngữ học thống kê và ứng dụng"], ["CSC15012", "Ứng dụng xử lý ngôn ngữ tự nhiên trong doanh nghiệp"],
+    ["CSC15109", "Nhập môn tính toán lượng tử"], ["CSC15010", "Blockchain và ứng dụng"],
+    ["CSC15102", "Phân tích mạng xã hội"], ["CSC15107", "Phân tích dữ liệu bảo toàn tính riêng tư"],
+    ["CSC15108", "Pháp chứng cho dữ liệu số"], ["CSC15110", "Các công nghệ tiên tiến trong xử lý ngôn ngữ tự nhiên"],
+    ["CSC16001", "Đồ họa máy tính"], ["CSC16002", "Phương pháp toán trong phân tích dữ liệu thị giác"],
+    ["CSC16003", "Phân tích thống kê dữ liệu nhiều biến"], ["CSC16004", "Thị giác máy tính"],
+    ["CSC16005", "Xử lý ảnh và video số"], ["CSC16101", "Đồ họa ứng dụng"],
+    ["CSC16102", "Kỹ thuật lập trình xử lý ảnh và video số"], ["CSC16105", "Truy vấn thông tin thị giác"],
+    ["CSC16106", "Nhập môn lập trình điều khiển thiết bị thông minh"], ["CSC16107", "Ứng dụng thị giác máy tính"],
+    ["CSC16109", "Ứng dụng xử lý ảnh và video số"], ["CSC16113", "Thị giác máy tính ba chiều"],
+    ["CSC16114", "Học sâu trong Thị giác máy tính"], ["CSC16115", "Triển khai và vận hành hệ thống học máy"],
+    ["CSC14119", "Nhập môn khoa học dữ liệu"], ["CSC17001", "Phân tích dữ liệu thông minh"],
+    ["CSC17104", "Lập trình cho khoa học dữ liệu"], ["CSC17103", "Khai thác dữ liệu đồ thị"],
+    ["CSC11002", "Hệ thống viễn thông"], ["CSC11003", "Lập trình mạng"],
+    ["CSC11004", "Mạng máy tính nâng cao"], ["CSC11006", "Nhập môn điện toán đám mây"],
+    ["CSC11007", "Nhập môn DevOps"], ["CSC11106", "Truyền thông không dây"],
+    ["CSC11115", "An ninh mạng"], ["CSC11116", "DevOps nâng cao"],
+    ["CSC11117", "Hệ điều hành Linux và ứng dụng"], ["CSC11118", "Triển khai và vận hành điện toán đám mây"],
+    ["CSC11120", "Bảo mật web và thiết bị di động"]
+];
+const FREE_ELECTIVE_MAP = new Map(FREE_ELECTIVES.map(([code, name]) => [code, name]));
+
+const TAB_TITLES = {
+    dashboard: 'Dashboard Tổng Quan',
+    curriculum: 'CTĐT & Danh sách Môn',
+    target: 'Dự báo Mục tiêu GPA',
+    notes: 'Mốc thời gian & Ghi chú',
+    language: 'Kiểm tra Chứng chỉ Ngoại ngữ'
+};
+
+let state = {
+    courses: [],
+    notes: [],
+    quickStatusFilter: 'ALL',
+    theme: 'light',
+    langCert: null,
+    goals: { sems: {}, selected: 1, overall: null },
+    curriculumVersion: CURRICULUM_VERSION
+};
+
+let deleteNoteTargetId = null;
+
+/* ==========================================
+   TIỆN ÍCH
+   ========================================== */
+function escapeHTML(str) {
+    return String(str === null || str === undefined ? '' : str).replace(/[&<>"']/g, ch => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]
+    ));
+}
+
+function sumCredits(list) {
+    return list.reduce((s, c) => s + c.credits, 0);
+}
+
+/* ==========================================
+   CONVERSION FORMULAS
+   ========================================== */
+function calculateGrades(score10, status) {
+    const hasScore = !(score10 === null || score10 === undefined || score10 === '');
+    const val = hasScore ? parseFloat(score10) : NaN;
+    if (isNaN(val) || val < 0 || val > 10) {
+        return { score4: null, gradeLetter: '--', isPass: false };
+    }
+
+    let score4 = 0;
+    if (val >= 9.0) score4 = 4.0;
+    else if (val >= 3.0) score4 = 1.0 + (val - 3.0) * 0.5;
+    else score4 = 0.0;
+    score4 = Math.round(score4 * 100) / 100;
+
+    let gradeLetter = 'F';
+    if (val >= 9.0) gradeLetter = 'A+';
+    else if (val >= 8.0) gradeLetter = 'A';
+    else if (val >= 7.0) gradeLetter = 'B+';
+    else if (val >= 6.0) gradeLetter = 'B';
+    else if (val >= 5.0) gradeLetter = 'C';
+    else if (val >= 4.0) gradeLetter = 'D+';
+    else if (val >= 3.0) gradeLetter = 'D';
+
+    return { score4, gradeLetter, isPass: val >= PASS_SCORE };
+}
+
+// Môn đã hoàn thành: "Đã xong" và đã có điểm hợp lệ >= PASS_SCORE (5.0)
+function isCompleted(c) {
+    if (c.status !== 'Đã xong') return false;
+    const g = calculateGrades(c.score10, c.status);
+    return g.score4 !== null && g.isPass;
+}
+
+// Môn được tính vào GPA: "Đã xong" và có điểm hợp lệ (kể cả điểm rớt)
+function isGraded(c) {
+    return (c.status === 'Đã xong' || c.status === 'Phải học lại') && calculateGrades(c.score10, c.status).score4 !== null;
+}
+
+// Xếp loại học lực (thang 4) - ngưỡng phổ biến, mang tính tham khảo
+function classifyGpa(gpa) {
+    if (gpa >= 3.6) return 'Xuất sắc';
+    if (gpa >= 3.2) return 'Giỏi';
+    if (gpa >= 2.5) return 'Khá';
+    if (gpa >= 2.0) return 'Trung bình';
+    return 'Yếu';
+}
+
+/* ==========================================
+   TÍNH TOÁN CHUNG (TÍN CHỈ, GPA)
+   ========================================== */
+function getMainCourses() {
+    return state.courses.filter(c => !c.isSub);
+}
+
+function gpaOf(list) {
+    let weighted = 0, credits = 0;
+    list.forEach(c => {
+        if (isGraded(c)) {
+            const g = calculateGrades(c.score10, c.status);
+            weighted += g.score4 * c.credits;
+            credits += c.credits;
+        }
+    });
+    return { weighted, credits, gpa: credits > 0 ? weighted / credits : 0 };
+}
+
+// Số TC được công nhận của một nhóm tự chọn (đã giới hạn theo yêu cầu của nhóm)
+function groupCountedCredits(key, completedList) {
+    const g = ELECTIVE_GROUPS[key];
+    if (key === 'TN') {
+        const has = id => completedList.some(c => c.id === id);
+        if (has('CSC10251') || has('CSC10252')) return 10;
+        if (has('CSC10204')) return 6 + (completedList.some(c => c.credits === 4) ? 4 : 0);
+        return 0; // học phần 4 TC chỉ được tính khi đã có Thực tập dự án tốt nghiệp
+    }
+    if (g.coreMin) {
+        const core = sumCredits(completedList.filter(c => !c.custom));
+        const extra = sumCredits(completedList.filter(c => c.custom));
+        const free = Math.min(g.pick - g.coreMin, Math.max(0, core - g.coreMin) + extra);
+        return Math.min(core, g.coreMin) + free;
+    }
+    return Math.min(sumCredits(completedList), g.pick);
+}
+
+// Tín chỉ đã hoàn thành; mỗi nhóm tự chọn bị giới hạn theo yêu cầu của nhóm
+function completedCreditsOf(list) {
+    let total = 0;
+    const buckets = {};
+    list.forEach(c => {
+        if (!isCompleted(c)) return;
+        if (c.group && ELECTIVE_GROUPS[c.group]) (buckets[c.group] = buckets[c.group] || []).push(c);
+        else total += c.credits;
+    });
+    Object.keys(buckets).forEach(k => { total += groupCountedCredits(k, buckets[k]); });
+    return total;
+}
+
+// Thống kê một khối kiến thức theo mục 6 của PDF
+function blockStats(info) {
+    const list = getMainCourses().filter(c => c.category === info.key);
+    const fixedList = list.filter(c => !c.group);
+    const fixedReq = sumCredits(fixedList);
+    const fixedDone = sumCredits(fixedList.filter(isCompleted));
+    const groupReq = Object.values(ELECTIVE_GROUPS)
+        .filter(g => g.category === info.key)
+        .reduce((s, g) => s + g.pick, 0);
+    const done = completedCreditsOf(list);
+    return {
+        info, done, fixedReq, fixedDone,
+        groupReq, groupDone: done - fixedDone,
+        required: fixedReq + groupReq
+    };
+}
+
+function getSemesterSeries() {
+    const series = [];
+    let cumW = 0, cumC = 0;
+    for (let sem = 1; sem <= 8; sem++) {
+        const list = state.courses.filter(c => c.semester === sem && !c.isSub);
+        const s = gpaOf(list);
+        cumW += s.weighted;
+        cumC += s.credits;
+        series.push({
+            sem,
+            list,
+            plan: PLAN_TOTALS[sem - 1],
+            passed: sumCredits(list.filter(isCompleted)),
+            semGpa: s.credits > 0 ? s.gpa : null,
+            semCredits: s.credits,
+            cumGpa: cumC > 0 ? cumW / cumC : null
+        });
+    }
+    return series;
+}
+
+/* ==========================================
+   LOCALSTORAGE PERSISTENCE & MIGRATION
+   ========================================== */
+function sanitizeProgress(p, canExempt) {
+    let status = 'Chưa học';
+    let score10 = null;
+    if (p) {
+        if (STATUS_LIST.includes(p.status) || (canExempt && p.status === EXEMPT_STATUS)) status = p.status;
+        const n = parseFloat(p.score10);
+        if (p.score10 !== null && p.score10 !== '' && !isNaN(n) && n >= 0 && n <= 10) score10 = n;
+        if (status === 'Đã xong') {
+            // "Đã xong" bắt buộc có điểm: dữ liệu cũ thiếu điểm được chuyển về "Đang học"
+            if (score10 === null) status = 'Đang học';
+            else if (score10 < PASS_SCORE) status = 'Phải học lại';
+        }
+    }
+    if (status === EXEMPT_STATUS) score10 = null; // môn được miễn không có điểm
+    return { status, score10 };
+}
+
+// Dựng lại danh sách môn từ CTĐT chuẩn, giữ trạng thái/điểm theo mã học phần và giữ các môn tự chọn tự do đã thêm
+function buildCourses(previous, langCert = null) {
+    const prev = Array.isArray(previous) ? previous : [];
+    const old = new Map(prev.map(c => [c.id, c]));
+
+    const courses = DEFAULT_CURRICULUM.map(c => {
+        const o = old.get(c.id);
+        const course = { ...c, ...sanitizeProgress(o, canBeExempt(c)) };
+        if (c.altSemesters && o && c.altSemesters.includes(parseInt(o.semester, 10))) course.semester = parseInt(o.semester, 10);
+        return course;
+    });
+
+    prev.forEach(p => {
+        if (p && p.custom && FREE_ELECTIVE_MAP.has(p.code) && !courses.some(c => c.id === p.code)) {
+            const sem = parseInt(p.semester, 10);
+            courses.push({
+                id: p.code, code: p.code, name: FREE_ELECTIVE_MAP.get(p.code), credits: 4,
+                category: 'Chuyên ngành', semester: sem >= 1 && sem <= 8 ? sem : 7,
+                isSub: false, group: 'NGANH', custom: true, ...sanitizeProgress(p)
+            });
+        }
+    });
+    return courses;
+}
+
+function migrateState(parsed) {
+    const langCert = sanitizeLangCert(parsed.langCert);
+    return {
+        courses: buildCourses(parsed.courses, langCert),
+        langCert,
+        goals: sanitizeGoals(parsed.goals),
+        notes: Array.isArray(parsed.notes) ? parsed.notes : [],
+        theme: parsed.theme === 'dark' ? 'dark' : 'light',
+        quickStatusFilter: ['ALL', ...STATUS_LIST].includes(parsed.quickStatusFilter) ? parsed.quickStatusFilter : 'ALL',
+        curriculumVersion: CURRICULUM_VERSION
+    };
+}
+
+function saveState() {
+    try {
+        state.curriculumVersion = CURRICULUM_VERSION;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+        console.error('Lỗi khi lưu LocalStorage', e);
+    }
+}
+
+function loadState() {
+    let raw = null;
+    try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { console.error(e); }
+
+    if (raw) {
+        try {
+            state = migrateState(JSON.parse(raw));
+            saveState();
+            return;
+        } catch (e) {
+            console.error('Dữ liệu lưu bị lỗi, khôi phục mặc định', e);
+        }
+    }
+    initDefaultData();
+}
+
+function initDefaultData() {
+    state.courses = buildCourses([]);
+    state.langCert = null;
+    state.goals = defaultGoals();
+    state.notes = [
+        { id: "note-1", date: "2026-11-15", title: "Đăng ký môn học HK2", content: "Đăng ký các môn Cơ sở ngành đúng khung giờ.", highlight: true }
+    ];
+    saveState();
+}
+
+/* ==========================================
+   INITIALIZATION & INTERACTION
+   ========================================== */
+window.addEventListener('DOMContentLoaded', () => {
+    loadState();
+    applyTheme(state.theme);
+    syncQuickStatusPills();
+    refreshFreeElectiveList();
+    renderDashboard();
+    renderCourses();
+    renderNotes();
+    renderLanguageTab();
+    renderOverallGoal();
+    renderGoalPlanner();
+
+    window.addEventListener('beforeunload', saveState);
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') saveState();
+    });
+
+    window.addEventListener('resize', renderChartsCanvas);
+    window.addEventListener('beforeprint', renderChartsCanvas);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeNoteModal();
+            closeConfirmModal();
+        }
+    });
+});
+
+function switchTab(tabId) {
+    document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.toggle('active', el.getAttribute('onclick') === `switchTab('${tabId}')`);
+    });
+
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.getElementById(`tab-${tabId}`).classList.add('active');
+
+    const title = document.getElementById('pageTitle');
+    if (title) title.innerText = TAB_TITLES[tabId] || '';
+
+    const content = document.querySelector('.content-area');
+    if (content) content.scrollTop = 0;
+
+    if (tabId === 'dashboard') renderDashboard();
+    if (tabId === 'curriculum') renderCourses();
+    if (tabId === 'language') renderLanguageTab();
+    if (tabId === 'target') { renderOverallGoal(); renderGoalPlanner(); }
+
+    document.getElementById('navMenuList').classList.remove('active');
+}
+
+function toggleMobileMenu(force) {
+    const nav = document.getElementById('navMenuList');
+    const open = typeof force === 'boolean' ? force : !nav.classList.contains('active');
+    nav.classList.toggle('active', open);
+    const btn = document.querySelector('.mobile-menu-btn');
+    if (btn) { btn.setAttribute('aria-expanded', open ? 'true' : 'false'); btn.setAttribute('aria-label', 'Mở/đóng menu'); }
+}
+window.addEventListener('resize', () => { if (window.innerWidth > 768) toggleMobileMenu(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMobileMenu(false); });
+
+/* ==========================================
+   MÔN TỰ CHỌN TỰ DO (PHỤ LỤC 1)
+   ========================================== */
+function refreshFreeElectiveList() {
+    const list = document.getElementById('freeElectiveList');
+    if (!list) return;
+    const taken = new Set(state.courses.map(c => c.id));
+    list.innerHTML = FREE_ELECTIVES
+        .filter(([code]) => !taken.has(code))
+        .map(([code, name]) => `<option value="${escapeHTML(code)} - ${escapeHTML(name)}"></option>`)
+        .join('');
+}
+
+function addFreeCourse() {
+    const input = document.getElementById('freeCourseInput');
+    const semSelect = document.getElementById('freeCourseSemester');
+    const raw = (input.value || '').trim();
+    if (!raw) { alert('Vui lòng gõ hoặc chọn một môn trong Phụ lục 1.'); return; }
+
+    const code = raw.split(' - ')[0].trim().toUpperCase();
+    if (!FREE_ELECTIVE_MAP.has(code)) {
+        alert('Không tìm thấy môn này trong Phụ lục 1. Hãy chọn từ danh sách gợi ý.');
+        return;
+    }
+    if (state.courses.some(c => c.id === code)) {
+        alert('Môn này đã có trong danh sách.');
+        return;
+    }
+
+    state.courses.push({
+        id: code, code, name: FREE_ELECTIVE_MAP.get(code), credits: 4,
+        category: 'Chuyên ngành', semester: parseInt(semSelect.value, 10) || 7,
+        isSub: false, group: 'NGANH', custom: true, status: 'Chưa học', score10: null
+    });
+    input.value = '';
+    saveState();
+    refreshFreeElectiveList();
+    renderCourses();
+}
+
+function removeFreeCourse(id) {
+    const c = state.courses.find(item => item.id === id && item.custom);
+    if (!c) return;
+    if (c.status !== 'Chưa học' && !confirm(`Xóa môn "${c.name}" khỏi danh sách? Trạng thái và điểm của môn sẽ mất.`)) return;
+    state.courses = state.courses.filter(item => item.id !== id);
+    saveState();
+    refreshFreeElectiveList();
+    renderCourses();
+}
+
+/* ==========================================
+   RENDER COURSES
+   ========================================== */
+function syncQuickStatusPills() {
+    document.querySelectorAll('#quickStatusFilters .pill-btn').forEach(b => {
+        const label = b.innerText.trim();
+        const key = label === 'Tất cả' ? 'ALL' : label;
+        b.classList.toggle('active', key === state.quickStatusFilter);
+    });
+}
+
+function renderElectiveSummary() {
+    const box = document.getElementById('electiveSummary');
+    if (!box) return;
+
+    const items = Object.keys(ELECTIVE_GROUPS).map(key => {
+        const g = ELECTIVE_GROUPS[key];
+        const completed = state.courses.filter(c => c.group === key && isCompleted(c));
+        const done = groupCountedCredits(key, completed);
+        const pct = Math.min(100, (done / g.pick) * 100);
+        const doneAll = done >= g.pick;
+
+        let extra = '';
+        if (g.coreMin) {
+            const core = sumCredits(completed.filter(c => !c.custom));
+            extra = `<div class="elective-hint" style="color: ${core >= g.coreMin ? 'var(--success)' : 'var(--warning)'};">Từ danh sách ngành: ${Math.min(core, 999)} / tối thiểu ${g.coreMin} TC</div>`;
+        }
+        return `
+            <div class="elective-item">
+                <div class="elective-top">
+                    <span class="elective-label">${escapeHTML(g.label)}</span>
+                    <span class="elective-count" style="color: ${doneAll ? 'var(--success)' : 'var(--text-primary)'};">${done} / ${g.pick} TC</span>
+                </div>
+                <div class="progress-bar" style="height: 6px; margin-top: 8px;">
+                    <div class="progress-fill" style="width: ${pct}%;"></div>
+                </div>
+                ${extra}
+                <div class="elective-hint">${escapeHTML(g.hint)}</div>
+            </div>`;
+    }).join('');
+
+    box.innerHTML = `
+        <div class="elective-title">Nhóm môn tự chọn — chỉ cần tích lũy đủ số tín chỉ quy định của mỗi nhóm</div>
+        <div class="elective-grid">${items}</div>`;
+}
+
+function renderCourses() {
+    renderElectiveSummary();
+    renderLangBanner();
+
+    const tbody = document.getElementById('courseTableBody');
+    const semFilter = document.getElementById('filterSemester').value;
+    const catFilter = document.getElementById('filterCategory').value;
+    const search = document.getElementById('searchCourse').value.trim().toLowerCase();
+    const statusFilter = state.quickStatusFilter;
+
+    const filtered = state.courses.filter(c => {
+        const mSem = semFilter === 'ALL' || c.semester.toString() === semFilter || (c.altSemesters && c.altSemesters.includes(parseInt(semFilter, 10)));
+        const mCat = catFilter === 'ALL' || c.category === catFilter;
+        const mSearch = c.name.toLowerCase().includes(search) || c.code.toLowerCase().includes(search);
+        const mStatus = statusFilter === 'ALL' || c.status === statusFilter;
+        return mSem && mCat && mSearch && mStatus && !isHiddenCourse(c);
+    }).sort((a, b) => a.semester - b.semester);
+
+    tbody.innerHTML = '';
+    if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; color: var(--text-muted); padding: 24px;">Không tìm thấy môn học nào.</td></tr>`;
+        return;
+    }
+
+    filtered.forEach(c => {
+        const g = calculateGrades(c.score10, c.status);
+        const electiveLabel = c.group && ELECTIVE_GROUPS[c.group] ? ELECTIVE_GROUPS[c.group].label : '';
+
+        let result;
+        if (c.status === 'Phải học lại') {
+            result = `<span class="badge badge-danger">KHÔNG ĐẠT</span>`;
+        } else if (c.status === 'Đã xong') {
+            if (g.score4 === null) result = `<span class="badge badge-warning">CẦN NHẬP ĐIỂM</span>`;
+            else result = g.isPass
+                ? `<span class="badge badge-success">ĐẠT</span>`
+                : `<span class="badge badge-danger">KHÔNG ĐẠT</span>`;
+        } else if (c.status === EXEMPT_STATUS) {
+            result = `<span class="badge badge-purple">MIỄN</span>`;
+        } else if (c.status === 'Đang học') {
+            result = `<span class="badge badge-warning">ĐANG HỌC</span>`;
+        } else {
+            result = `<span class="badge" style="background: var(--bg-input); color: var(--text-muted);">CHƯA</span>`;
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${escapeHTML(c.code)}</td>
+            <td style="font-weight: 600;">
+                ${escapeHTML(c.name)}
+                ${c.isSub ? `<span class="badge badge-purple" style="margin-left: 6px;" title="Không tính vào GPA và 138 TC tích lũy">Môn phụ</span>` : ''}
+                ${electiveLabel ? `<span class="badge badge-warning" style="margin-left: 6px;" title="${escapeHTML(electiveLabel)}">${c.custom ? 'Tự do' : 'Tự chọn'}</span>` : ''}
+                ${c.custom ? `<button class="mini-remove" title="Xóa môn tự chọn tự do này" onclick="removeFreeCourse('${escapeHTML(c.id)}')">✕</button>` : ''}
+            </td>
+            <td style="font-weight: 600;">${c.credits}</td>
+            <td style="font-size: 12px; font-weight: 600;">${c.isSub || !c.group ? 'BB' : 'TC'}</td>
+            <td style="font-size: 12px; color: var(--text-secondary);">${escapeHTML(c.category)}</td>
+            <td>${c.altSemesters
+                ? `<select onchange="updateCourseSemester('${escapeHTML(c.id)}', this.value)" title="Tốt nghiệp có thể thực hiện ở HK7 hoặc HK8">${c.altSemesters.map(s => `<option value="${s}" ${c.semester === s ? 'selected' : ''}>HK${s}</option>`).join('')}</select>`
+                : 'HK' + c.semester}</td>
+            <td>
+                <select onchange="updateCourseStatus('${escapeHTML(c.id)}', this.value)">
+                    <option value="Chưa học" ${c.status === 'Chưa học' ? 'selected' : ''}>Chưa học</option>
+                    <option value="Đang học" ${c.status === 'Đang học' ? 'selected' : ''}>Đang học</option>
+                    <option value="Đã xong" ${c.status === 'Đã xong' ? 'selected' : ''}>Đã xong</option>
+                    <option value="Phải học lại" ${c.status === 'Phải học lại' ? 'selected' : ''}>Phải học lại</option>
+                    ${canBeExempt(c) ? `<option value="${EXEMPT_STATUS}" ${c.status === EXEMPT_STATUS ? 'selected' : ''}>${EXEMPT_STATUS}</option>` : ''}
+                </select>
+            </td>
+            <td>
+                <input type="number" step="0.1" min="0" max="10" data-score-id="${escapeHTML(c.id)}" value="${c.score10 !== null ? c.score10 : ''}"
+                    placeholder="${c.status === EXEMPT_STATUS ? 'Miễn' : '0-10'}" onchange="updateCourseScore('${escapeHTML(c.id)}', this.value)" ${c.status === EXEMPT_STATUS ? `readonly title="Học phần đã được miễn, không cần nhập điểm" onclick="notifyExempt('${escapeHTML(c.id)}')" style="width: 75px; opacity: 0.55; cursor: not-allowed;"` : 'style="width: 75px;"'}>
+            </td>
+            <td style="font-weight: 700; color: var(--brand-primary);">${g.score4 !== null ? g.score4.toFixed(2) : '--'}</td>
+            <td style="font-weight: 700;">${g.gradeLetter}</td>
+            <td>${result}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function updateCourseSemester(id, val) {
+    const c = state.courses.find(item => item.id === id);
+    const sem = parseInt(val, 10);
+    if (c && c.altSemesters && c.altSemesters.includes(sem)) {
+        c.semester = sem;
+        saveState();
+        renderCourses();
+    }
+}
+
+function notifyExempt(id) {
+    const c = state.courses.find(item => item.id === id);
+    alert(`Học phần "${c ? c.name : ''}" đã được miễn học nên không cần nhập điểm.`);
+}
+
+function focusScoreInput(id) {
+    const el = document.querySelector(`input[data-score-id="${CSS.escape(id)}"]`);
+    if (el) el.focus();
+}
+
+function updateCourseStatus(id, val) {
+    const c = state.courses.find(item => item.id === id);
+    if (!c || !(STATUS_LIST.includes(val) || (canBeExempt(c) && val === EXEMPT_STATUS))) return;
+
+    if (val === 'Đã xong') {
+        // Bắt buộc nhập điểm trước khi chọn "Đã xong"
+        if (c.score10 === null) {
+            alert(`Vui lòng nhập điểm của môn "${c.name}" trước khi chọn trạng thái "Đã xong".`);
+            renderCourses(); // trả ô chọn về trạng thái cũ
+            focusScoreInput(id);
+            return;
+        }
+        c.status = calculateGrades(c.score10, val).isPass ? 'Đã xong' : 'Phải học lại';
+    } else {
+        if (val === EXEMPT_STATUS) {
+            // Môn được miễn không có điểm: xóa điểm đã nhập (nếu có) sau khi người dùng xác nhận
+            if (c.score10 !== null && !confirm(`Chọn "Miễn học" sẽ xóa điểm đã nhập của môn "${c.name}". Tiếp tục?`)) {
+                renderCourses();
+                return;
+            }
+            c.score10 = null;
+        }
+        c.status = val;
+    }
+    saveState();
+    renderCourses();
+}
+
+function updateCourseScore(id, val) {
+    const c = state.courses.find(item => item.id === id);
+    if (!c) return;
+
+    // Môn đã được miễn: không cho nhập điểm
+    if (c.status === EXEMPT_STATUS) {
+        notifyExempt(id);
+        renderCourses();
+        return;
+    }
+
+    let revertedToStudying = false;
+    if (val === '') {
+        c.score10 = null;
+        if (c.status === 'Đã xong') { c.status = 'Đang học'; revertedToStudying = true; }
+    } else {
+        const num = parseFloat(val);
+        if (isNaN(num) || num < 0 || num > 10) {
+            alert('Điểm phải nằm trong khoảng từ 0 đến 10.');
+            renderCourses();
+            return;
+        }
+        c.score10 = num;
+        if (c.status === 'Chưa học' || c.status === 'Đang học' || c.status === 'Phải học lại' || c.status === 'Đã xong') {
+            c.status = calculateGrades(c.score10, 'Đã xong').isPass ? 'Đã xong' : 'Phải học lại';
+        }
+    }
+    saveState();
+    renderCourses();
+    if (revertedToStudying) alert('Trạng thái "Đã xong" cần có điểm, nên môn này đã được chuyển về "Đang học".');
+}
+
+function setQuickStatus(status, btn) {
+    state.quickStatusFilter = status;
+    document.querySelectorAll('#quickStatusFilters .pill-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    saveState();
+    renderCourses();
+}
+
+/* ==========================================
+   DASHBOARD CALCULATIONS
+   ========================================== */
+function subRequirementMissing() {
+    const subs = state.courses.filter(c => c.isSub);
+    const ok = c => c.status === 'Đã xong' || c.status === EXEMPT_STATUS;
+    return [['GDTC', /^BAA0002/], ['GDQP-AN', /^BAA00030$/], ['Ngoại ngữ', /^ADD/]]
+        .filter(([n, re]) => !(n === 'Ngoại ngữ' && langCertPassed()) && !subs.filter(c => re.test(c.id)).every(ok)).map(([n]) => n);
+}
+
+function renderDashboard() {
+    const list = getMainCourses();
+    const completedCredits = completedCreditsOf(list);
+    const { gpa, credits: gpaCredits } = gpaOf(list);
+    const progressPercent = Math.min(100, (completedCredits / TOTAL_CREDITS) * 100);
+
+    document.getElementById('kpiGpa').innerText = gpa.toFixed(2);
+    document.getElementById('kpiGpaSub').innerText = gpaCredits > 0
+        ? `Tính trên ${gpaCredits} TC • Xếp loại tạm tính: ${classifyGpa(gpa)}`
+        : 'Chưa có dữ liệu điểm';
+    document.getElementById('kpiCredits').innerText = `${completedCredits} / ${TOTAL_CREDITS}`;
+    document.getElementById('kpiProgressCreditBar').style.width = `${progressPercent}%`;
+    document.getElementById('kpiProgressPercent').innerText = `${progressPercent.toFixed(1)}%`;
+
+    const badge = document.getElementById('kpiStatusBadge');
+    const detail = document.getElementById('kpiStatusDetail');
+    const remaining = Math.max(0, TOTAL_CREDITS - completedCredits);
+
+    const missingSub = subRequirementMissing();
+    if (completedCredits >= TOTAL_CREDITS && gpa >= 2.0 && missingSub.length === 0) {
+        badge.className = "badge badge-success"; badge.innerText = "Đủ Điều Kiện Tốt Nghiệp";
+        detail.innerText = 'Đủ 138 TC, GPA ≥ 2.00, đạt GDTC, GDQP-AN và ngoại ngữ';
+    } else if (gpaCredits > 0 && gpa < 2.0) {
+        badge.className = "badge badge-danger"; badge.innerText = "Cảnh Báo Học Tập";
+        detail.innerText = `GPA hiện tại ${gpa.toFixed(2)} < 2.00, cần cải thiện`;
+    } else {
+        badge.className = "badge badge-warning"; badge.innerText = "Đang Học Tập";
+        detail.innerText = `Còn ${remaining} TC • cần duy trì GPA ≥ 2.00` + (missingSub.length ? ` • Chưa xong: ${missingSub.join(', ')}` : '');
+    }
+
+    renderGoalBanner();
+    renderBlockProgress();
+    renderSemesterSummaryTable();
+    renderChartsCanvas();
+}
+
+function renderBlockProgress() {
+    const box = document.getElementById('blockProgress');
+    if (!box) return;
+
+    const rows = CATEGORY_INFO.map(info => {
+        const s = blockStats(info);
+        const pct = Math.min(100, (s.done / s.required) * 100);
+        const detail = s.groupReq > 0
+            ? `Bắt buộc ${s.fixedDone}/${s.fixedReq} • Tự chọn ${s.groupDone}/${s.groupReq}`
+            : `Bắt buộc ${s.fixedDone}/${s.fixedReq}`;
+        return `
+            <div class="block-item">
+                <div class="block-top">
+                    <span class="block-label"><span class="block-dot" style="background: ${info.color};"></span>${escapeHTML(info.label)}</span>
+                    <span class="block-count">${s.done} / ${s.required} TC</span>
+                </div>
+                <div class="progress-bar" style="height: 8px; margin-top: 10px;">
+                    <div class="progress-fill" style="width: ${pct}%; background: ${info.color};"></div>
+                </div>
+                <div class="block-detail">${detail}</div>
+            </div>`;
+    }).join('');
+
+    box.innerHTML = `
+        <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 16px;">Tiến độ theo khối kiến thức (CTĐT Khóa 2025)</h3>
+        <div class="block-grid">${rows}</div>`;
+}
+
+function renderSemesterSummaryTable() {
+    const tbody = document.getElementById('semesterSummaryTable');
+    tbody.innerHTML = '';
+
+    getSemesterSeries().forEach(s => {
+        const electives = s.list.filter(c => c.group).length;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="font-weight: 700;">Học kỳ ${s.sem}</td>
+            <td>${s.list.length} môn${electives ? ` <span style="color: var(--text-muted); font-size: 11px;">(${electives} tự chọn)</span>` : ''}</td>
+            <td>${s.plan} TC</td>
+            <td style="color: var(--success); font-weight: 600;">${s.passed} TC</td>
+            <td style="font-weight: 700; color: var(--brand-primary);">${s.semGpa !== null ? s.semGpa.toFixed(2) : '--'}</td>
+            <td style="font-weight: 700;">${s.cumGpa !== null ? s.cumGpa.toFixed(2) : '--'}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+/* ==========================================
+   CANVAS API CHARTS (HD & LOCAL FONT)
+   ========================================== */
+function renderChartsCanvas() {
+    renderGpaTrendCanvas();
+    renderKnowledgeCanvas();
+}
+
+function prepareCanvas(canvas) {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    // Tab đang ẩn (display: none) thì không có kích thước, bỏ qua để tránh vẽ lỗi
+    if (rect.width === 0 || rect.height === 0) return null;
+
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    return { ctx, w: rect.width, h: rect.height };
+}
+
+function renderGpaTrendCanvas() {
+    const canvas = document.getElementById('gpaTrendCanvas');
+    if (!canvas) return;
+    const prepared = prepareCanvas(canvas);
+    if (!prepared) return;
+    const { ctx, w, h } = prepared;
+
+    // Chỉ vẽ điểm ở những học kỳ đã có điểm (không kéo đường phẳng sang học kỳ chưa học)
+    const gpaData = getSemesterSeries().map(s => (s.semCredits > 0 ? s.cumGpa : null));
+
+    const padding = 35;
+    const chartW = w - padding * 2;
+    const chartH = h - padding * 2;
+    const muted = state.theme === 'dark' ? '#64748b' : '#94a3b8';
+
+    ctx.strokeStyle = state.theme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+    ctx.lineWidth = 1;
+
+    for (let i = 0; i <= 4; i++) {
+        const y = padding + chartH - (i / 4) * chartH;
+        ctx.beginPath();
+        ctx.moveTo(padding, y);
+        ctx.lineTo(w - padding, y);
+        ctx.stroke();
+
+        ctx.fillStyle = muted;
+        ctx.font = '500 11px system-ui, sans-serif';
+        ctx.fillText(i.toFixed(1), 10, y + 4);
+    }
+
+    const points = [];
+    for (let i = 0; i < 8; i++) {
+        const x = padding + (i / 7) * chartW;
+        const val = gpaData[i];
+        const y = val !== null ? padding + chartH - (val / 4) * chartH : null;
+        points.push({ x, y, val });
+
+        ctx.fillStyle = muted;
+        ctx.font = '500 11px system-ui, sans-serif';
+        ctx.fillText(`HK${i + 1}`, x - 10, h - 8);
+    }
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#3b82f6';
+    ctx.lineWidth = 3;
+    let started = false;
+
+    points.forEach(p => {
+        if (p.y !== null) {
+            if (!started) { ctx.moveTo(p.x, p.y); started = true; }
+            else { ctx.lineTo(p.x, p.y); }
+        }
+    });
+    ctx.stroke();
+
+    points.forEach(p => {
+        if (p.y !== null) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = '#3b82f6';
+            ctx.fill();
+            ctx.lineWidth = 2.5;
+            ctx.strokeStyle = state.theme === 'dark' ? '#121826' : '#ffffff';
+            ctx.stroke();
+
+            ctx.fillStyle = state.theme === 'dark' ? '#f8fafc' : '#0f172a';
+            ctx.font = '700 11px system-ui, sans-serif';
+            ctx.fillText(p.val.toFixed(2), p.x - 12, p.y - 11);
+        }
+    });
+}
+
+function renderKnowledgeCanvas() {
+    const canvas = document.getElementById('knowledgeCanvas');
+    if (!canvas) return;
+    const prepared = prepareCanvas(canvas);
+    if (!prepared) return;
+    const { ctx, w, h } = prepared;
+
+    const stats = CATEGORY_INFO.map(blockStats);
+    const total = stats.reduce((a, s) => a + s.done, 0);
+
+    const ringArea = h - 88;
+    const centerX = w / 2;
+    const centerY = ringArea / 2;
+    const radius = Math.max(20, Math.min(w, ringArea) / 2 - 16);
+
+    ctx.textAlign = 'center';
+
+    if (total === 0) {
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = state.theme === 'dark' ? '#1e293b' : '#e2e8f0';
+        ctx.lineWidth = 14;
+        ctx.stroke();
+
+        ctx.fillStyle = state.theme === 'dark' ? '#64748b' : '#94a3b8';
+        ctx.font = '500 12px system-ui, sans-serif';
+        ctx.fillText('Chưa có dữ liệu', centerX, centerY + 4);
+    } else {
+        let startAngle = -Math.PI / 2;
+        stats.forEach(s => {
+            const sliceAngle = (s.done / total) * (Math.PI * 2);
+            if (sliceAngle <= 0) return;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+            ctx.strokeStyle = s.info.color;
+            ctx.lineWidth = 16;
+            ctx.stroke();
+            startAngle += sliceAngle;
+        });
+
+        ctx.fillStyle = state.theme === 'dark' ? '#f8fafc' : '#0f172a';
+        ctx.font = '700 18px system-ui, sans-serif';
+        ctx.fillText(`${total} TC`, centerX, centerY + 6);
+    }
+
+    // Chú thích màu: đã đạt / yêu cầu của từng khối
+    ctx.textAlign = 'left';
+    ctx.font = '600 12px system-ui, sans-serif';
+    const legendX = Math.max(10, centerX - 95);
+    stats.forEach((s, i) => {
+        const y = ringArea + 18 + i * 18;
+        ctx.fillStyle = s.info.color;
+        ctx.fillRect(legendX, y - 9, 10, 10);
+        ctx.fillStyle = state.theme === 'dark' ? '#cbd5e1' : '#475569';
+        ctx.fillText(`${s.info.key}: ${s.done}/${s.required} TC`, legendX + 18, y);
+    });
+    ctx.textAlign = 'start';
+}
+
+/* ==========================================
+   KIỂM TRA CHỨNG CHỈ NGOẠI NGỮ (CTĐT mục 1.3)
+   ========================================== */
+// Mức điểm tối thiểu tương đương bậc 3/6 theo CTĐT. needed = ngưỡng đạt; optional = không bắt buộc nhập (chỉ dùng cho anyOf)
+const LANG_CERTS = {
+    IELTS: { label: 'IELTS', issuer: 'British Council hoặc IDP Australia', requirement: 'Overall từ 4.5',
+        fields: [{ key: 'score', type: 'number', label: 'Điểm Overall', min: 0, max: 9, step: 0.5, needed: 4.5 }] },
+    TOEFL_IBT: { label: 'TOEFL iBT', issuer: 'ETS', requirement: 'Từ 45 điểm',
+        fields: [{ key: 'score', type: 'number', label: 'Tổng điểm TOEFL iBT', min: 0, max: 120, step: 1, needed: 45 }] },
+    TOEFL_ITP: { label: 'TOEFL ITP', issuer: 'ETS', requirement: 'Từ 450 điểm',
+        fields: [{ key: 'score', type: 'number', label: 'Tổng điểm TOEFL ITP', min: 310, max: 677, step: 1, needed: 450 }] },
+    TOEFL_CBT: { label: 'TOEFL CBT', issuer: 'ETS', requirement: 'Từ 133 điểm',
+        fields: [{ key: 'score', type: 'number', label: 'Tổng điểm TOEFL CBT', min: 0, max: 300, step: 1, needed: 133 }] },
+    TOEIC: { label: 'TOEIC 4 kỹ năng', issuer: 'ETS', requirement: 'Nghe-Đọc từ 450 và Nói-Viết từ 181',
+        fields: [
+            { key: 'lr', type: 'number', label: 'Điểm Nghe - Đọc', min: 0, max: 990, step: 5, needed: 450 },
+            { key: 'sw', type: 'number', label: 'Điểm Nói - Viết', min: 0, max: 400, step: 1, needed: 181 }
+        ] },
+    PET: { label: 'PET (Cambridge)', issuer: 'Cambridge', requirement: 'Đạt từ mức B1 Preliminary trở lên hoặc từ 140 điểm trở lên', anyOf: true,
+        fields: [
+            { key: 'level', type: 'checkbox', label: 'Chứng chỉ đạt từ mức B1 Preliminary trở lên', needed: true },
+            { key: 'score', type: 'number', label: 'Điểm Cambridge English Scale', min: 100, max: 170, step: 1, needed: 140, optional: true }
+        ] },
+    BEC: { label: 'BEC Preliminary (Cambridge)', issuer: 'Cambridge Assessment', requirement: 'Có chứng chỉ BEC Preliminary',
+        fields: [{ key: 'has', type: 'checkbox', label: 'Tôi có chứng chỉ BEC Preliminary do Cambridge Assessment cấp', needed: true }] },
+    BULATS: { label: 'BULATS', issuer: 'Cambridge Assessment', requirement: 'Từ 40 điểm',
+        fields: [{ key: 'score', type: 'number', label: 'Điểm BULATS', min: 0, max: 100, step: 1, needed: 40 }] },
+    CEFR6: { label: 'Chứng chỉ bậc 3/6 (Khung 6 bậc Việt Nam)', issuer: 'Đơn vị được Bộ GD&ĐT công nhận', requirement: 'Bậc 3/6 trở lên theo TT33/2026 và được Bộ GD&ĐT công nhận',
+        fields: [
+            { key: 'level', type: 'number', label: 'Bậc đạt được (1 – 6)', min: 1, max: 6, step: 1, needed: 3 },
+            { key: 'recognized', type: 'checkbox', label: 'Chứng chỉ được Bộ GD&ĐT công nhận', needed: true }
+        ] }
+};
+
+let langLastRemoved = 0; // số học phần vừa bị gỡ "Miễn học" ở lần kiểm tra gần nhất
+
+function isLanguageCourse(c) {
+    return !!c && c.isSub && /^ADD/.test(c.id);
+}
+function langCertPassed() {
+    return !!(state.langCert && state.langCert.passed === true);
+}
+// Học phần Ngoại ngữ bị ẩn khi chứng chỉ đã đạt chuẩn
+function isHiddenCourse(c) {
+    return isLanguageCourse(c) && langCertPassed();
+}
+
+// Trả về { error } nếu dữ liệu nhập không hợp lệ, ngược lại { ok, results }
+function evaluateLangCert(type, values) {
+    const cert = LANG_CERTS[type];
+    if (!cert || !values || typeof values !== 'object') return { error: 'Loại chứng chỉ không hợp lệ.' };
+    const results = [];
+    for (const f of cert.fields) {
+        const v = values[f.key];
+        if (f.type === 'checkbox') {
+            results.push({ f, provided: v === true, ok: v === true });
+            continue;
+        }
+        const blank = v === null || v === undefined || v === '';
+        if (blank && f.optional) { results.push({ f, provided: false, ok: false }); continue; }
+        const n = blank ? NaN : Number(v);
+        if (isNaN(n) || n < f.min || n > f.max) return { error: `${f.label}: vui lòng nhập một số trong khoảng ${f.min} – ${f.max}.` };
+        results.push({ f, provided: true, value: n, ok: n >= f.needed });
+    }
+    if (cert.anyOf && !results.some(r => r.provided && (r.f.type === 'number' || r.ok))) {
+        return { error: 'Vui lòng nhập điểm hoặc tích chọn mức B1 Preliminary trở lên.' };
+    }
+    const ok = cert.anyOf ? results.some(r => r.ok) : results.every(r => r.ok);
+    return { ok, results };
+}
+
+function sanitizeLangCert(raw) {
+    if (!raw || typeof raw !== 'object' || !LANG_CERTS[raw.type]) return null;
+    const values = {};
+    LANG_CERTS[raw.type].fields.forEach(f => {
+        const v = raw.values ? raw.values[f.key] : null;
+        if (f.type === 'checkbox') values[f.key] = v === true;
+        else values[f.key] = (v === null || v === undefined || v === '' || isNaN(Number(v))) ? null : Number(v);
+    });
+    const r = evaluateLangCert(raw.type, values);
+    if (r.error) return null;
+    const checkedAt = /^\d{4}-\d{2}-\d{2}$/.test(String(raw.checkedAt || '')) ? raw.checkedAt : null;
+    return { type: raw.type, values, passed: r.ok, checkedAt }; // kết quả luôn được tính lại từ điểm đã lưu
+}
+
+function renderLangCertFields() {
+    const sel = document.getElementById('langCertType');
+    const box = document.getElementById('langCertFields');
+    const cert = sel ? LANG_CERTS[sel.value] : null;
+    if (!cert || !box) return;
+    const saved = state.langCert && state.langCert.type === sel.value ? state.langCert.values : {};
+    box.innerHTML = cert.fields.map(f => {
+        const id = `langField_${f.key}`;
+        const v = saved[f.key];
+        if (f.type === 'checkbox') {
+            return `<label class="lang-check"><input type="checkbox" id="${id}" ${v === true ? 'checked' : ''}><span>${escapeHTML(f.label)}</span></label>`;
+        }
+        return `<div class="lang-field"><label for="${id}">${escapeHTML(f.label)}${f.optional ? ' (không bắt buộc)' : ''} — tối thiểu ${f.needed}</label>
+            <input type="number" id="${id}" min="${f.min}" max="${f.max}" step="${f.step}" value="${v !== null && v !== undefined ? v : ''}" placeholder="${f.min} – ${f.max}"></div>`;
+    }).join('') + `<div class="lang-hint">Cấp bởi: ${escapeHTML(cert.issuer)}. Yêu cầu: ${escapeHTML(cert.requirement)}.</div>`;
+}
+
+function renderLangRequirementTable() {
+    const tbody = document.getElementById('langRequirementTable');
+    if (!tbody) return;
+    tbody.innerHTML = Object.keys(LANG_CERTS).map(k => {
+        const c = LANG_CERTS[k];
+        return `<tr><td style="font-weight: 600;">${escapeHTML(c.label)}</td><td>${escapeHTML(c.requirement)}</td><td style="font-size: 12px; color: var(--text-secondary);">${escapeHTML(c.issuer)}</td></tr>`;
+    }).join('');
+}
+
+function renderLangCertResult() {
+    const box = document.getElementById('langCertResult');
+    if (!box) return;
+    const lc = state.langCert;
+    if (!lc) { box.innerHTML = ''; return; }
+    const cert = LANG_CERTS[lc.type];
+    const r = evaluateLangCert(lc.type, lc.values);
+    if (r.error) { box.innerHTML = ''; return; }
+
+    const lines = r.results.map(res => {
+        const f = res.f;
+        if (f.type === 'checkbox') {
+            return `<li>${escapeHTML(f.label)}: <b>${res.provided ? 'có' : 'không'}</b> ${res.ok ? '✓' : (cert.anyOf ? '—' : '✗')}</li>`;
+        }
+        if (!res.provided) return '';
+        return `<li>${escapeHTML(f.label)}: <b>${res.value}</b> (tối thiểu ${f.needed}) ${res.ok ? '✓' : '✗'}</li>`;
+    }).join('');
+    const date = lc.checkedAt ? lc.checkedAt.split('-').reverse().join('/') : '';
+    const note = lc.passed
+        ? 'Các học phần Ngoại ngữ (Anh văn 1 – 4) đã được ẩn khỏi danh sách môn học và không còn tính vào điều kiện tốt nghiệp.'
+        : `Các học phần Ngoại ngữ vẫn được giữ nguyên trong danh sách và không có trạng thái "Miễn học"${langLastRemoved > 0 ? ` (${langLastRemoved} học phần vừa được đưa về "Chưa học")` : ''}.`;
+
+    box.innerHTML = `<div class="lang-result ${lc.passed ? 'pass' : 'fail'}">
+        <h4>${lc.passed ? '✓ Đạt chuẩn đầu ra ngoại ngữ' : '✗ Chưa đạt chuẩn đầu ra ngoại ngữ'}</h4>
+        <div class="lang-result-sub">${escapeHTML(cert.label)}${date ? ` • kiểm tra ngày ${escapeHTML(date)}` : ''}</div>
+        <ul>${lines}</ul>
+        <p>${escapeHTML(note)}</p>
+    </div>`;
+}
+
+function renderLanguageTab() {
+    const sel = document.getElementById('langCertType');
+    if (!sel) return;
+    if (!sel.options.length) {
+        sel.innerHTML = Object.keys(LANG_CERTS).map(k => `<option value="${k}">${escapeHTML(LANG_CERTS[k].label)}</option>`).join('');
+    }
+    if (state.langCert) sel.value = state.langCert.type;
+    renderLangCertFields();
+    renderLangCertResult();
+    renderLangRequirementTable();
+}
+
+function renderLangBanner() {
+    const box = document.getElementById('langCertBanner');
+    if (!box) return;
+    const lc = state.langCert;
+    if (!lc || !LANG_CERTS[lc.type]) { box.innerHTML = ''; return; }
+    const label = escapeHTML(LANG_CERTS[lc.type].label);
+    box.innerHTML = lc.passed
+        ? `<div class="lang-banner pass"><span>Đã ẩn các học phần Ngoại ngữ vì chứng chỉ ${label} đạt chuẩn đầu ra.</span><button class="btn-secondary" onclick="switchTab('language')">Xem chứng chỉ</button></div>`
+        : `<div class="lang-banner fail"><span>Chứng chỉ ${label} chưa đạt chuẩn đầu ra: cần học các học phần Ngoại ngữ, không áp dụng "Miễn học".</span><button class="btn-secondary" onclick="switchTab('language')">Kiểm tra lại</button></div>`;
+}
+
+function checkLangCert() {
+    const type = document.getElementById('langCertType').value;
+    const cert = LANG_CERTS[type];
+    if (!cert) return;
+    const values = {};
+    cert.fields.forEach(f => {
+        const el = document.getElementById(`langField_${f.key}`);
+        if (f.type === 'checkbox') values[f.key] = !!(el && el.checked);
+        else values[f.key] = el && el.value.trim() !== '' ? parseFloat(el.value) : null;
+    });
+
+    const r = evaluateLangCert(type, values);
+    if (r.error) { alert(r.error); return; }
+
+    langLastRemoved = 0;
+    if (!r.ok) {
+        // Chưa đạt: giữ học phần Ngoại ngữ nhưng gỡ trạng thái "Miễn học"
+        state.courses.forEach(c => {
+            if (isLanguageCourse(c) && c.status === EXEMPT_STATUS) { c.status = 'Chưa học'; c.score10 = null; langLastRemoved++; }
+        });
+    }
+    state.langCert = { type, values, passed: r.ok, checkedAt: new Date().toISOString().slice(0, 10) };
+    saveState();
+    renderLangCertResult();
+    renderCourses();
+    renderDashboard();
+}
+
+function clearLangCert() {
+    if (!state.langCert) return;
+    if (!confirm('Xóa kết quả kiểm tra chứng chỉ? Các học phần Ngoại ngữ (nếu đang bị ẩn) sẽ hiện lại.')) return;
+    state.langCert = null;
+    langLastRemoved = 0;
+    saveState();
+    renderLanguageTab();
+    renderCourses();
+    renderDashboard();
+}
+
+/* ==========================================
+   DỰ BÁO MỤC TIÊU GPA THEO HỌC KỲ
+   ========================================== */
+const GOAL_MIN = 2.0, GOAL_MAX = 4.0;
+// Mức GPA tối thiểu theo yêu cầu của CTĐT (điều kiện tốt nghiệp: GPA ≥ 2.00). Dưới mức này: cảnh báo học vụ.
+const ACADEMIC_MIN_GPA = 2.0;
+
+function defaultGoals() { return { sems: {}, selected: 1, overall: null }; }
+
+function sanitizeGoalValue(v) {
+    if (v === null || v === undefined || v === '') return null;
+    const n = Number(v);
+    if (isNaN(n) || n < 0 || n > GOAL_MAX) return null;
+    return Math.round(n * 100) / 100;
+}
+
+function sanitizeGoals(raw) {
+    const g = defaultGoals();
+    if (!raw || typeof raw !== 'object') return g;
+    const sel = parseInt(raw.selected, 10);
+    g.selected = sel >= 1 && sel <= 8 ? sel : 1;
+    const ov = sanitizeGoalValue(raw.overall);
+    g.overall = ov !== null && ov >= GOAL_MIN ? ov : null;
+    for (let s = 1; s <= 8; s++) {
+        const v = sanitizeGoalValue(raw.sems ? raw.sems[s] : null);
+        if (v !== null) g.sems[s] = v;
+    }
+    return g;
+}
+
+function semesterGoal(sem) {
+    const v = state.goals && state.goals.sems ? state.goals.sems[sem] : null;
+    return v === undefined ? null : v;
+}
+
+// Điểm hệ 10 trung bình tối thiểu để phần còn lại đạt n4 (hệ 4). Infinity nếu không thể.
+function score10ForGpa4(n4) {
+    if (n4 > GOAL_MAX + 1e-9) return Infinity;
+    if (n4 <= 2.0) return PASS_SCORE;
+    if (n4 >= GOAL_MAX - 1e-9) return 9.0;
+    return Math.min(10, (n4 - 1.0) / 0.5 + 3.0);
+}
+
+function letterForScore10(v) {
+    if (v >= 9) return 'A+';
+    if (v >= 8) return 'A';
+    if (v >= 7) return 'B+';
+    if (v >= 6) return 'B';
+    return 'C';
+}
+
+function alertItem(level, title, detail) { return { level, title, detail }; }
+
+// Phân tích một học kỳ: GPA hiện tại, điểm cần đạt cho từng học phần chưa có điểm, các nhắc nhở / cảnh báo
+function buildSemesterView(sem) {
+    const s = getSemesterSeries()[sem - 1];
+    const goal = semesterGoal(sem);
+    const hasGpa = s.semGpa !== null;
+    const gpa2 = hasGpa ? Math.round(s.semGpa * 100) / 100 : null;
+    const weighted = hasGpa ? s.semGpa * s.semCredits : 0;
+    const rem = Math.max(0, s.plan - s.semCredits); // TC kế hoạch của học kỳ chưa có điểm
+    let need10 = null;
+    if (goal !== null && rem > 0) need10 = score10ForGpa4((goal * (s.semCredits + rem) - weighted) / rem);
+
+    const failed = s.list.filter(c => isGraded(c) && !calculateGrades(c.score10, c.status).isPass);
+    const alerts = [];
+
+    // 1) Nhắc nhở: GPA hiện tại thấp hơn mục tiêu
+    if (goal !== null && hasGpa && gpa2 < goal - 1e-9) {
+        const diff = (goal - gpa2).toFixed(2);
+        if (rem === 0) {
+            alerts.push(alertItem('danger', `GPA học kỳ ${gpa2.toFixed(2)} thấp hơn mục tiêu ${goal.toFixed(2)} (thiếu ${diff})`,
+                'Học kỳ đã đủ TC theo kế hoạch nên chưa thể đạt mục tiêu bằng điểm mới. Hãy cân nhắc học cải thiện hoặc bù ở các học kỳ sau.'));
+        } else if (need10 === Infinity) {
+            alerts.push(alertItem('danger', `GPA học kỳ ${gpa2.toFixed(2)} thấp hơn mục tiêu ${goal.toFixed(2)} (thiếu ${diff})`,
+                `Dù đạt A+ ở ${rem} TC còn lại cũng không thể chạm mục tiêu này. Nên điều chỉnh mục tiêu thấp hơn.`));
+        } else {
+            alerts.push(alertItem('warn', `Nhắc nhở: GPA học kỳ hiện tại ${gpa2.toFixed(2)} đang thấp hơn mục tiêu ${goal.toFixed(2)} (thiếu ${diff})`,
+                `Để đạt mục tiêu, các học phần còn lại (${rem} TC) cần đạt trung bình hệ 10 ≥ ${need10.toFixed(2)}.`));
+        }
+    } else if (goal !== null && hasGpa) {
+        alerts.push(alertItem('ok', rem === 0 ? 'Đã đạt mục tiêu học kỳ' : 'Đang đạt mục tiêu học kỳ',
+            rem === 0 ? `GPA học kỳ ${gpa2.toFixed(2)} ≥ mục tiêu ${goal.toFixed(2)}.` : `GPA hiện tại ${gpa2.toFixed(2)} ≥ mục tiêu ${goal.toFixed(2)}. Hãy duy trì điểm số ở các học phần còn lại.`));
+    } else if (goal !== null && !hasGpa) {
+        alerts.push(alertItem('info', 'Chưa có điểm để so sánh với mục tiêu',
+            'Nhập điểm các học phần đã học trong tab "CTĐT & Danh sách Môn" để hệ thống nhắc nhở khi GPA thấp hơn mục tiêu.'));
+    }
+    if (goal !== null && goal < ACADEMIC_MIN_GPA) {
+        alerts.push(alertItem('info', `Mục tiêu thấp hơn mức tối thiểu ${ACADEMIC_MIN_GPA.toFixed(2)}`,
+            `Yêu cầu của CTĐT là GPA ≥ ${ACADEMIC_MIN_GPA.toFixed(2)}. Bạn nên đặt mục tiêu từ mức này trở lên.`));
+    }
+
+    // 2) Cảnh báo học vụ: GPA học kỳ thấp hơn yêu cầu của nhà trường
+    if (hasGpa && gpa2 < ACADEMIC_MIN_GPA - 1e-9) {
+        alerts.push(alertItem('danger', `CẢNH BÁO HỌC VỤ: GPA học kỳ ${gpa2.toFixed(2)} thấp hơn yêu cầu tối thiểu ${ACADEMIC_MIN_GPA.toFixed(2)}`,
+            'Cần cải thiện điểm ở các học phần tiếp theo và học lại các môn chưa đạt để tránh bị xử lý học vụ.'));
+    }
+    if (failed.length) {
+        alerts.push(alertItem('warn', `${failed.length} học phần chưa đạt trong học kỳ`,
+            failed.map(c => `${c.name} (${c.score10})`).join(', ') + '. Các môn này cần học lại.'));
+    }
+    return { sem, s, goal, hasGpa, gpa: gpa2, rem, need10, failed, alerts };
+}
+
+// Cảnh báo GPA tích lũy dưới yêu cầu của trường
+function cumulativeAlert() {
+    const { gpa, credits } = gpaOf(getMainCourses());
+    if (credits > 0 && gpa < ACADEMIC_MIN_GPA - 1e-9) {
+        return alertItem('danger', `CẢNH BÁO HỌC VỤ: GPA tích lũy ${gpa.toFixed(2)} thấp hơn yêu cầu tối thiểu ${ACADEMIC_MIN_GPA.toFixed(2)}`,
+            'GPA tích lũy phải đạt tối thiểu mức này để đủ điều kiện tốt nghiệp.');
+    }
+    return null;
+}
+
+// Tất cả cảnh báo mức warn/danger (dùng cho thanh cảnh báo ở Dashboard)
+function collectGoalAlerts() {
+    const list = [];
+    for (let sem = 1; sem <= 8; sem++) {
+        buildSemesterView(sem).alerts.filter(a => a.level === 'warn' || a.level === 'danger').forEach(a => list.push({ sem, ...a }));
+    }
+    const cum = cumulativeAlert();
+    if (cum) list.push({ sem: 0, ...cum });
+    const pr = projectionAlert();
+    if (pr && (pr.level === 'warn' || pr.level === 'danger')) list.push({ sem: 0, ...pr });
+    return list;
+}
+
+/* ==========================================
+   MỤC TIÊU GPA TÍCH LŨY TOÀN KHÓA
+   ========================================== */
+function overallGoalValue() {
+    const v = state.goals ? state.goals.overall : null;
+    return v === undefined ? null : v;
+}
+
+// Dự báo GPA toàn khóa: các môn đã đạt được "khóa" điểm; số TC còn thiếu để đủ 138 TC là phần cần đạt thêm.
+// Môn "Phải học lại" chưa tính là đã đạt nên nằm trong phần TC còn lại (điểm học lại sẽ thay điểm cũ).
+function buildOverallView() {
+    const list = getMainCourses();
+    const cur = gpaOf(list);
+    const done = completedCreditsOf(list);
+    const locked = gpaOf(list.filter(isCompleted));
+    const rem = Math.max(0, TOTAL_CREDITS - done);
+    const total = locked.credits + rem;
+    const goal = overallGoalValue();
+    const maxGpa = rem > 0 ? (locked.weighted + GOAL_MAX * rem) / total : locked.gpa;
+
+    let need4 = null, need10 = null, suggest = null;
+    if (goal !== null && rem > 0) {
+        need4 = (goal * total - locked.weighted) / rem;
+        need10 = score10ForGpa4(need4);
+        if (need10 !== Infinity) suggest = Math.min(GOAL_MAX, Math.max(GOAL_MIN, Math.ceil(need4 * 100 - 1e-9) / 100));
+    }
+
+    const alerts = [];
+    if (goal === null) {
+        alerts.push(alertItem('info', 'Chưa đặt mục tiêu toàn khóa',
+            'Hãy đặt GPA tích lũy mong muốn khi tốt nghiệp. Sau đó bạn có thể đặt mục tiêu cho từng học kỳ ở phần bên dưới.'));
+    } else if (rem === 0) {
+        alerts.push(locked.gpa >= goal - 1e-9
+            ? alertItem('ok', 'Đã đạt mục tiêu toàn khóa', `GPA tích lũy ${locked.gpa.toFixed(2)} ≥ mục tiêu ${goal.toFixed(2)}.`)
+            : alertItem('danger', `GPA tích lũy ${locked.gpa.toFixed(2)} thấp hơn mục tiêu ${goal.toFixed(2)}`,
+                'Đã đủ 138 TC nên không còn môn trong kế hoạch để nâng điểm. Hãy cân nhắc học cải thiện.'));
+    } else if (need10 === Infinity) {
+        alerts.push(alertItem('danger', `Không thể đạt mục tiêu ${goal.toFixed(2)}`,
+            `Dù đạt A+ ở ${rem} TC còn lại, GPA toàn khóa tối đa chỉ là ${maxGpa.toFixed(2)}. Nên điều chỉnh mục tiêu thấp hơn.`));
+    } else if (locked.credits === 0) {
+        alerts.push(alertItem('info', 'Chưa có điểm để so sánh với mục tiêu',
+            `Với ${rem} TC còn lại, bạn cần đạt trung bình hệ 10 ≥ ${need10.toFixed(2)} để đạt mục tiêu ${goal.toFixed(2)}.`));
+    } else if (cur.gpa < goal - 1e-9) {
+        alerts.push(alertItem('warn', `Nhắc nhở: GPA tích lũy hiện tại ${cur.gpa.toFixed(2)} đang thấp hơn mục tiêu ${goal.toFixed(2)} (thiếu ${(goal - cur.gpa).toFixed(2)})`,
+            `Để đạt mục tiêu, ${rem} TC còn lại cần đạt trung bình hệ 10 ≥ ${need10.toFixed(2)} (tương đương GPA hệ 4 ≥ ${need4.toFixed(2)}).`));
+    } else {
+        alerts.push(alertItem('ok', 'Đang đạt mục tiêu toàn khóa',
+            `GPA hiện tại ${cur.gpa.toFixed(2)} ≥ mục tiêu ${goal.toFixed(2)}. ${rem} TC còn lại cần trung bình hệ 10 ≥ ${need10.toFixed(2)} để giữ mục tiêu.`));
+    }
+    return { goal, cur, done, rem, maxGpa, need4, need10, suggest, alerts };
+}
+
+function fillOverallGoalInput(v) {
+    const el = document.getElementById('overallGoalInput');
+    if (el) el.value = v.toFixed(2);
+}
+
+function saveOverallGoal() {
+    const el = document.getElementById('overallGoalInput');
+    const raw = el ? el.value.trim() : '';
+    const v = sanitizeGoalValue(raw);
+    if (raw === '' || v === null || v < GOAL_MIN) {
+        alert(`Vui lòng nhập mục tiêu GPA toàn khóa hợp lệ, từ ${GOAL_MIN.toFixed(1)} đến ${GOAL_MAX.toFixed(1)}.`);
+        return;
+    }
+    state.goals.overall = v;
+    saveState();
+    renderOverallGoal();
+    renderGoalPlanner();
+    renderGoalBanner();
+}
+
+function clearOverallGoal() {
+    state.goals.overall = null;
+    saveState();
+    renderOverallGoal();
+    renderGoalPlanner();
+    renderGoalBanner();
+}
+
+// GPA tích lũy toàn khóa dự kiến = trung bình có trọng số TC kế hoạch của các mục tiêu học kỳ đã đặt
+function projectionAlert() {
+    const goal = overallGoalValue();
+    if (goal === null) return null;
+    let w = 0, c = 0, n = 0;
+    for (let sem = 1; sem <= 8; sem++) {
+        const g = semesterGoal(sem);
+        if (g !== null) { w += g * PLAN_TOTALS[sem - 1]; c += PLAN_TOTALS[sem - 1]; n++; }
+    }
+    if (n === 0) return null;
+    const proj = Math.round((w / c) * 100) / 100;
+    const unsetC = TOTAL_CREDITS - c;
+    const scope = n === 8 ? 'từ mục tiêu của 8 học kỳ' : `từ mục tiêu của ${n}/8 học kỳ đã đặt (${c} TC)`;
+
+    if (proj < goal - 1e-9) {
+        const diff = (goal - proj).toFixed(2);
+        const title = `Nhắc nhở: GPA toàn khóa dự kiến ${scope} là ${proj.toFixed(2)}, thấp hơn mục tiêu toàn khóa ${goal.toFixed(2)} (thiếu ${diff})`;
+        if (n === 8) {
+            return alertItem('warn', title, 'Hãy nâng mục tiêu ở một số học kỳ (hoặc điều chỉnh mục tiêu toàn khóa) để hai mục tiêu khớp nhau.');
+        }
+        const need = (goal * TOTAL_CREDITS - w) / unsetC;
+        if (need > GOAL_MAX + 1e-9) {
+            return alertItem('danger', title, `Dù đạt ${GOAL_MAX.toFixed(2)} ở ${8 - n} học kỳ chưa đặt mục tiêu (${unsetC} TC) vẫn không đủ. Hãy nâng mục tiêu các học kỳ đã đặt hoặc hạ mục tiêu toàn khóa.`);
+        }
+        return alertItem('warn', title, `Các học kỳ chưa đặt mục tiêu (${unsetC} TC) cần GPA học kỳ trung bình ≥ ${need.toFixed(2)} để đạt mục tiêu toàn khóa.`);
+    }
+    return alertItem('ok', n === 8 ? 'Mục tiêu các học kỳ đủ để đạt mục tiêu toàn khóa' : 'Mục tiêu các học kỳ đã đặt đang đủ để đạt mục tiêu toàn khóa',
+        `GPA toàn khóa dự kiến ${scope} là ${proj.toFixed(2)} ≥ mục tiêu ${goal.toFixed(2)}.`);
+}
+
+function overallAlertsHtml(v) {
+    const list = [...v.alerts];
+    const pr = projectionAlert();
+    if (pr) list.push(pr);
+    return list.map(a => `<div class="goal-alert ${a.level}" role="${a.level === 'danger' || a.level === 'warn' ? 'alert' : 'status'}">
+            <span class="goal-alert-icon" aria-hidden="true">${a.level === 'ok' ? '✓' : (a.level === 'info' ? 'i' : '!')}</span>
+            <div><strong>${escapeHTML(a.title)}</strong>${escapeHTML(a.detail)}</div></div>`).join('');
+}
+
+// Cập nhật riêng khu vực thông báo của thẻ toàn khóa (không làm mất nội dung đang nhập ở ô mục tiêu)
+function refreshOverallAlerts() {
+    const el = document.getElementById('overallGoalAlerts');
+    if (el) el.innerHTML = overallAlertsHtml(buildOverallView());
+}
+
+function renderOverallGoal() {
+    const box = document.getElementById('goalOverall');
+    if (!box) return;
+    const v = buildOverallView();
+    const goal = v.goal;
+
+    const needText = goal === null ? '--'
+        : (v.rem === 0 ? 'Đã đủ TC' : (v.need10 === Infinity ? 'Không thể đạt' : `≥ ${v.need10.toFixed(2)}`));
+    const needSub = goal === null ? 'Hãy đặt mục tiêu toàn khóa'
+        : (v.rem === 0 ? 'Không còn học phần cần học' : (v.need10 === Infinity ? `GPA tối đa có thể đạt: ${v.maxGpa.toFixed(2)}` : `Cho ${v.rem} TC còn lại • tương đương hệ 4 ≥ ${Math.max(0, v.need4).toFixed(2)}`));
+
+    const alertHtml = overallAlertsHtml(v);
+
+    box.innerHTML = `
+        <h3 class="goal-title">Mục tiêu GPA tích lũy toàn khóa</h3>
+        <p class="goal-desc">Đặt GPA tích lũy (hệ 4) bạn muốn đạt khi tốt nghiệp. Hệ thống tính điểm trung bình hệ 10 tối thiểu cần có ở số tín chỉ còn lại trong 138 TC. Sau khi có mục tiêu toàn khóa, hãy đặt mục tiêu cho từng học kỳ ở phần bên dưới.</p>
+        <div class="goal-form">
+            <div class="goal-field">
+                <label for="overallGoalInput">Mục tiêu GPA toàn khóa (hệ 4)</label>
+                <input type="number" id="overallGoalInput" min="${GOAL_MIN}" max="${GOAL_MAX}" step="0.05" value="${goal !== null ? goal.toFixed(2) : ''}" placeholder="VD: 3.20" onkeydown="if(event.key==='Enter')saveOverallGoal()">
+            </div>
+            <button class="btn-primary" onclick="saveOverallGoal()">Lưu mục tiêu</button>
+            ${goal !== null ? '<button class="btn-secondary" onclick="clearOverallGoal()">Xóa mục tiêu</button>' : ''}
+            <div class="goal-chips" aria-label="Chọn nhanh mục tiêu toàn khóa">
+                <button class="goal-chip" onclick="fillOverallGoalInput(2.5)">Khá 2.50</button>
+                <button class="goal-chip" onclick="fillOverallGoalInput(3.2)">Giỏi 3.20</button>
+                <button class="goal-chip" onclick="fillOverallGoalInput(3.6)">Xuất sắc 3.60</button>
+                ${v.suggest !== null ? `<button class="goal-chip" onclick="fillGoalInput(${v.suggest})" title="Điền vào ô mục tiêu của học kỳ đang chọn bên dưới, sau đó bấm Lưu mục tiêu">Gợi ý mỗi học kỳ còn lại: ${v.suggest.toFixed(2)}</button>` : ''}
+            </div>
+        </div>
+        <div class="goal-stats">
+            <div class="goal-stat"><div class="goal-stat-label">Mục tiêu toàn khóa</div><div class="goal-stat-value">${goal !== null ? goal.toFixed(2) : '--'}</div><div class="goal-stat-sub">${goal !== null ? escapeHTML(classifyGpa(goal)) : 'Chưa đặt mục tiêu'}</div></div>
+            <div class="goal-stat"><div class="goal-stat-label">GPA tích lũy hiện tại</div><div class="goal-stat-value" style="color: ${v.cur.credits > 0 && goal !== null && v.cur.gpa < goal ? 'var(--danger)' : 'var(--brand-primary)'};">${v.cur.credits > 0 ? v.cur.gpa.toFixed(2) : '--'}</div><div class="goal-stat-sub">${v.cur.credits > 0 ? `Tính trên ${v.cur.credits} TC đã có điểm` : 'Chưa có môn nào có điểm'}</div></div>
+            <div class="goal-stat"><div class="goal-stat-label">TC đã đạt / ${TOTAL_CREDITS}</div><div class="goal-stat-value">${v.done} / ${TOTAL_CREDITS}</div><div class="goal-stat-sub">Còn ${v.rem} TC • GPA tối đa có thể đạt ${v.maxGpa.toFixed(2)}</div></div>
+            <div class="goal-stat"><div class="goal-stat-label">Điểm TB cần đạt (hệ 10)</div><div class="goal-stat-value" style="font-size: ${needText.length > 9 ? 18 : 26}px;">${escapeHTML(needText)}</div><div class="goal-stat-sub">${escapeHTML(needSub)}</div></div>
+        </div>
+        <div class="goal-alerts" id="overallGoalAlerts">${alertHtml}</div>`;
+}
+
+function selectGoalSemester(sem) {
+    if (sem < 1 || sem > 8) return;
+    state.goals.selected = sem;
+    saveState();
+    renderGoalPlanner();
+}
+
+function fillGoalInput(v) {
+    const el = document.getElementById('goalInput');
+    if (el) el.value = v.toFixed(2);
+}
+
+function saveSemesterGoal() {
+    const el = document.getElementById('goalInput');
+    const raw = el ? el.value.trim() : '';
+    const v = sanitizeGoalValue(raw);
+    if (raw === '' || v === null || v < GOAL_MIN) {
+        alert(`Vui lòng nhập mục tiêu GPA học kỳ hợp lệ, từ ${GOAL_MIN.toFixed(1)} đến ${GOAL_MAX.toFixed(1)}.`);
+        return;
+    }
+    state.goals.sems[state.goals.selected] = v;
+    saveState();
+    renderGoalPlanner();
+    renderGoalBanner();
+    refreshOverallAlerts();
+}
+
+function clearSemesterGoal() {
+    delete state.goals.sems[state.goals.selected];
+    saveState();
+    renderGoalPlanner();
+    renderGoalBanner();
+    refreshOverallAlerts();
+}
+
+function renderGoalPlanner() {
+    const box = document.getElementById('goalPlanner');
+    const listBox = document.getElementById('goalCourses');
+    if (!box || !listBox) return;
+
+    const sem = state.goals.selected;
+    const v = buildSemesterView(sem);
+    const cum = cumulativeAlert();
+    const proj = projectionAlert();
+    const alerts = [...v.alerts, ...(cum ? [cum] : []), ...(proj ? [proj] : [])];
+
+    const pills = Array.from({ length: 8 }, (_, i) => {
+        const n = i + 1;
+        const g = semesterGoal(n);
+        const hasAlert = buildSemesterView(n).alerts.some(a => a.level === 'warn' || a.level === 'danger');
+        return `<button class="sem-pill ${n === sem ? 'active' : ''} ${hasAlert ? 'has-alert' : ''}" onclick="selectGoalSemester(${n})" title="${hasAlert ? 'Học kỳ này có cảnh báo' : ''}">
+            Học kỳ ${n}<small>${g !== null ? 'Mục tiêu ' + g.toFixed(2) : 'Chưa đặt'}</small></button>`;
+    }).join('');
+
+    const goal = v.goal;
+    const needText = goal === null ? '--'
+        : (v.rem === 0 ? 'Đã đủ TC' : (v.need10 === Infinity ? 'Không thể đạt' : `≥ ${v.need10.toFixed(2)}`));
+    const needSub = goal === null ? 'Hãy đặt mục tiêu cho học kỳ này'
+        : (v.rem === 0 ? 'Không còn học phần cần học trong kế hoạch' : `Trung bình cho ${v.rem} TC còn lại (hệ 10)`);
+
+    const alertHtml = alerts.length
+        ? alerts.map(a => `<div class="goal-alert ${a.level}" role="${a.level === 'danger' || a.level === 'warn' ? 'alert' : 'status'}">
+            <span class="goal-alert-icon" aria-hidden="true">${a.level === 'ok' ? '✓' : (a.level === 'info' ? 'i' : '!')}</span>
+            <div><strong>${escapeHTML(a.title)}</strong>${escapeHTML(a.detail)}</div></div>`).join('')
+        : `<div class="goal-alert info"><span class="goal-alert-icon" aria-hidden="true">i</span><div><strong>Chưa có thông báo</strong>Đặt mục tiêu và nhập điểm để nhận nhắc nhở cho học kỳ này.</div></div>`;
+
+    box.innerHTML = `
+        <h3 class="goal-title">Dự báo mục tiêu GPA theo học kỳ</h3>
+        <p class="goal-desc">Chọn học kỳ, đặt mục tiêu GPA (hệ 4) cho học kỳ đó. Hệ thống liệt kê các học phần của học kỳ cùng điểm cần đạt, nhắc nhở khi GPA hiện tại thấp hơn mục tiêu và cảnh báo học vụ khi GPA thấp hơn yêu cầu của nhà trường.</p>
+        <div class="sem-pills">${pills}</div>
+        <div class="goal-form">
+            <div class="goal-field">
+                <label for="goalInput">Mục tiêu GPA Học kỳ ${sem} (hệ 4)</label>
+                <input type="number" id="goalInput" min="${GOAL_MIN}" max="${GOAL_MAX}" step="0.05" value="${goal !== null ? goal.toFixed(2) : ''}" placeholder="VD: 3.20" onkeydown="if(event.key==='Enter')saveSemesterGoal()">
+            </div>
+            <button class="btn-primary" onclick="saveSemesterGoal()">Lưu mục tiêu</button>
+            ${goal !== null ? '<button class="btn-secondary" onclick="clearSemesterGoal()">Xóa mục tiêu</button>' : ''}
+            <div class="goal-chips" aria-label="Chọn nhanh mục tiêu">
+                <button class="goal-chip" onclick="fillGoalInput(2.5)">Khá 2.50</button>
+                <button class="goal-chip" onclick="fillGoalInput(3.2)">Giỏi 3.20</button>
+                <button class="goal-chip" onclick="fillGoalInput(3.6)">Xuất sắc 3.60</button>
+            </div>
+        </div>
+        <div class="goal-stats">
+            <div class="goal-stat"><div class="goal-stat-label">Mục tiêu học kỳ</div><div class="goal-stat-value">${goal !== null ? goal.toFixed(2) : '--'}</div><div class="goal-stat-sub">${goal !== null ? escapeHTML(classifyGpa(goal)) : 'Chưa đặt mục tiêu'}</div></div>
+            <div class="goal-stat"><div class="goal-stat-label">GPA hiện tại của học kỳ</div><div class="goal-stat-value" style="color: ${v.hasGpa && goal !== null && v.gpa < goal ? 'var(--danger)' : 'var(--brand-primary)'};">${v.hasGpa ? v.gpa.toFixed(2) : '--'}</div><div class="goal-stat-sub">${v.hasGpa ? `Tính trên ${v.s.semCredits} TC đã có điểm` : 'Chưa có môn nào có điểm'}</div></div>
+            <div class="goal-stat"><div class="goal-stat-label">TC có điểm / kế hoạch</div><div class="goal-stat-value">${v.s.semCredits} / ${v.s.plan}</div><div class="goal-stat-sub">Còn ${v.rem} TC trong kế hoạch</div></div>
+            <div class="goal-stat"><div class="goal-stat-label">Điểm TB cần đạt (hệ 10)</div><div class="goal-stat-value" style="font-size: ${needText.length > 9 ? 18 : 26}px;">${escapeHTML(needText)}</div><div class="goal-stat-sub">${escapeHTML(needSub)}</div></div>
+        </div>
+        <div class="goal-alerts">${alertHtml}</div>`;
+
+    renderGoalCourseList(v, listBox);
+}
+
+function renderGoalCourseList(v, listBox) {
+    const courses = v.s.list;
+    const hasElective = courses.some(c => c.group);
+    const rows = courses.map(c => {
+        const g = calculateGrades(c.score10, c.status);
+        const elective = c.group && ELECTIVE_GROUPS[c.group] ? ELECTIVE_GROUPS[c.group].label : '';
+        let need;
+        if (isGraded(c)) {
+            need = g.isPass
+                ? `<span class="badge badge-success">Đã đạt ${c.score10} (${g.gradeLetter})</span>`
+                : `<span class="badge badge-danger">Không đạt ${c.score10}, cần học lại</span>`;
+        } else if (v.goal === null) {
+            need = '<span style="color: var(--text-muted);">Hãy đặt mục tiêu</span>';
+        } else if (v.rem === 0) {
+            need = '<span style="color: var(--text-muted);">Không cần (đã đủ TC kế hoạch)</span>';
+        } else if (v.need10 === Infinity) {
+            need = '<span class="badge badge-danger">Không thể đạt mục tiêu</span>';
+        } else {
+            need = `<span class="goal-need">≥ ${v.need10.toFixed(2)}<small>(${letterForScore10(v.need10)} trở lên)</small></span>`;
+        }
+        const status = c.status === 'Đã xong' ? '<span class="badge badge-success">Đã xong</span>'
+            : c.status === 'Phải học lại' ? '<span class="badge badge-danger">Phải học lại</span>'
+            : c.status === 'Đang học' ? '<span class="badge badge-warning">Đang học</span>'
+            : '<span class="badge" style="background: var(--bg-input); color: var(--text-muted);">Chưa học</span>';
+        return `<tr>
+            <td>${escapeHTML(c.code)}</td>
+            <td style="font-weight: 600;">${escapeHTML(c.name)}${elective ? ` <span class="badge badge-warning" style="margin-left: 6px;" title="${escapeHTML(elective)}">Tự chọn</span>` : ''}</td>
+            <td style="font-weight: 600;">${c.credits}</td>
+            <td>${status}</td>
+            <td style="font-weight: 700;">${c.score10 !== null ? c.score10 : '--'}</td>
+            <td>${need}</td>
+        </tr>`;
+    }).join('');
+
+    listBox.innerHTML = `
+        <div style="padding: 18px 24px; border-bottom: 1px solid var(--border-color); font-weight: 700; font-size: 15px;">Học phần của Học kỳ ${v.sem} và điểm cần đạt</div>
+        <div class="table-responsive" style="border: 0; border-radius: 0;">
+            <table>
+                <thead><tr><th>Mã HP</th><th>Tên học phần</th><th>Số TC</th><th>Trạng thái</th><th>Điểm hiện có</th><th>Điểm TB cần đạt (hệ 10)</th></tr></thead>
+                <tbody>${rows || '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 24px;">Học kỳ này chưa có học phần.</td></tr>'}</tbody>
+            </table>
+        </div>
+        <div class="goal-note">
+            Điểm cần đạt là mức trung bình tối thiểu áp dụng cho các học phần chưa có điểm, tính theo công thức GPA có trọng số tín chỉ, để GPA học kỳ đạt mục tiêu. Có thể đạt điểm cao hơn ở môn này để bù cho môn khác.
+            ${hasElective ? ' Với nhóm môn tự chọn, bạn chỉ cần chọn đủ số TC quy định của nhóm (xem tab "CTĐT & Danh sách Môn").' : ''}
+            Mức tối thiểu để cảnh báo học vụ hiện đặt là GPA ${ACADEMIC_MIN_GPA.toFixed(2)}.
+        </div>`;
+}
+
+// Thanh cảnh báo ở Dashboard
+function renderGoalBanner() {
+    const box = document.getElementById('goalAlertBanner');
+    if (!box) return;
+    const alerts = collectGoalAlerts();
+    if (!alerts.length) { box.innerHTML = ''; return; }
+    const sems = [...new Set(alerts.filter(a => a.sem > 0).map(a => 'HK' + a.sem))];
+    const severe = alerts.some(a => a.level === 'danger');
+    const where = sems.length ? ` (${sems.join(', ')})` : '';
+    box.innerHTML = `<div class="goal-banner ${severe ? 'danger' : ''}" role="alert">
+        <span>${severe ? 'Cảnh báo học vụ' : 'Nhắc nhở mục tiêu'}: có ${alerts.length} thông báo cần chú ý${escapeHTML(where)}.</span>
+        <button class="btn-secondary" onclick="switchTab('target')">Xem chi tiết</button></div>`;
+}
+
+/* ==========================================
+   PERSONAL NOTES MANAGEMENT
+   ========================================== */
+let notesCalendarDate = new Date();
+
+function changeNotesMonth(offset) {
+    notesCalendarDate = new Date(notesCalendarDate.getFullYear(), notesCalendarDate.getMonth() + offset, 1);
+    renderNotes();
+}
+
+function goToNotesToday() {
+    notesCalendarDate = new Date();
+    renderNotes();
+}
+
+function noteDaysUntil(dateValue, baseDate = new Date()) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dateValue || ''))) return null;
+    const [year, month, day] = dateValue.split('-').map(Number);
+    const target = new Date(year, month - 1, day);
+    const today = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate());
+    return Math.round((target - today) / 86400000);
+}
+
+function renderNoteReminders() {
+    const panel = document.getElementById('noteReminders');
+    if (!panel) return;
+    const upcoming = state.notes
+        .map(note => ({ note, days: noteDaysUntil(note.date) }))
+        .filter(item => item.days !== null && item.days >= 0 && item.days <= 7)
+        .sort((a, b) => a.days - b.days || String(a.note.title).localeCompare(String(b.note.title), 'vi'));
+    if (!upcoming.length) {
+        panel.className = 'note-reminders note-reminders-empty';
+        panel.innerHTML = '<div class="note-reminders-heading"><span class="note-reminders-icon" aria-hidden="true">✓</span><div><strong>Nhắc hạn</strong><p>Không có ghi chú sắp đến trong 7 ngày tới.</p></div></div>';
+        return;
+    }
+    panel.className = 'note-reminders';
+    panel.innerHTML = `<div class="note-reminders-heading"><span class="note-reminders-icon" aria-hidden="true">!</span><div><strong>Sắp đến hạn</strong><p>${upcoming.length} ghi chú trong 7 ngày tới</p></div></div><div class="note-reminders-list">${upcoming.map(({ note, days }) => {
+        const when = days === 0 ? 'Hôm nay' : days === 1 ? 'Ngày mai' : `Còn ${days} ngày`;
+        const dateLabel = new Date(`${note.date}T00:00:00`).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
+        return `<article class="note-reminder-item"><span class="note-reminder-date">${escapeHTML(when)}<small>${escapeHTML(dateLabel)}</small></span><span class="note-reminder-title">${escapeHTML(note.title || 'Ghi chú')}</span>${note.highlight ? '<span class="note-reminder-star" title="Ghi chú được đánh dấu nổi bật">★</span>' : ''}</article>`;
+    }).join('')}</div>`;
+}
+function renderNotes() {
+    const grid = document.getElementById('notesGrid');
+    const monthLabel = document.getElementById('notesCalendarMonth');
+    if (!grid || !monthLabel) return;
+    renderNoteReminders();
+    const year = notesCalendarDate.getFullYear();
+    const month = notesCalendarDate.getMonth();
+    monthLabel.textContent = new Intl.DateTimeFormat('vi-VN', { month: 'long', year: 'numeric' }).format(notesCalendarDate);
+    grid.innerHTML = '';
+    ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].forEach(day => {
+        const heading = document.createElement('div');
+        heading.className = 'calendar-weekday';
+        heading.textContent = day;
+        grid.appendChild(heading);
+    });
+    const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const notesByDate = new Map();
+    state.notes.forEach(note => {
+        if (!note.date) return;
+        if (!notesByDate.has(note.date)) notesByDate.set(note.date, []);
+        notesByDate.get(note.date).push(note);
+    });
+    for (let i = 0; i < firstWeekday; i++) {
+        const blank = document.createElement('div');
+        blank.className = 'calendar-day calendar-day-empty';
+        grid.appendChild(blank);
+    }
+    const today = new Date();
+    const todayKey = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
+    for (let day = 1; day <= daysInMonth; day++) {
+        const key = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const cell = document.createElement('div');
+        cell.className = `calendar-day${key === todayKey ? ' calendar-day-today' : ''}`;
+        cell.innerHTML = `<div class="calendar-day-number">${day}</div>`;
+        (notesByDate.get(key) || []).forEach(note => {
+            const item = document.createElement('article');
+            const daysUntil = noteDaysUntil(note.date);
+            const dueClass = daysUntil !== null && daysUntil >= 0 && daysUntil <= 7 ? ' calendar-note-upcoming' : '';
+            const dueLabel = daysUntil === 0 ? 'Hôm nay' : daysUntil === 1 ? 'Ngày mai' : daysUntil >= 2 && daysUntil <= 7 ? `Còn ${daysUntil} ngày` : '';
+            item.className = `calendar-note${note.highlight ? ' calendar-note-highlight' : ''}${dueClass}`;
+            item.innerHTML = `<strong>${escapeHTML(note.title)}${dueLabel ? `<span class="calendar-due-badge">${escapeHTML(dueLabel)}</span>` : ''}</strong>${note.content ? `<p>${escapeHTML(note.content)}</p>` : ''}<div class="calendar-note-actions"><button onclick="editNote('${escapeHTML(note.id)}')">Sửa</button><button onclick="openConfirmDelete('${escapeHTML(note.id)}')">Xóa</button></div>`;
+            cell.appendChild(item);
+        });
+        grid.appendChild(cell);
+    }
+}
+
+function openNoteModal(id = null) {
+    document.getElementById('noteModal').classList.add('active');
+    if (id) {
+        const n = state.notes.find(item => item.id === id);
+        if (n) {
+            document.getElementById('noteModalTitle').innerText = "Sửa Ghi Chú";
+            document.getElementById('noteIdInput').value = n.id;
+            document.getElementById('noteDateInput').value = n.date;
+            document.getElementById('noteTitleInput').value = n.title;
+            document.getElementById('noteContentInput').value = n.content;
+            document.getElementById('noteHighlightInput').checked = !!n.highlight;
+        }
+    } else {
+        document.getElementById('noteModalTitle').innerText = "Thêm Ghi Chú Mới";
+        document.getElementById('noteIdInput').value = '';
+        document.getElementById('noteDateInput').value = new Date().toISOString().split('T')[0];
+        document.getElementById('noteTitleInput').value = '';
+        document.getElementById('noteContentInput').value = '';
+        document.getElementById('noteHighlightInput').checked = false;
+    }
+}
+
+function closeNoteModal() {
+    document.getElementById('noteModal').classList.remove('active');
+}
+
+function saveNote() {
+    const id = document.getElementById('noteIdInput').value;
+    const date = document.getElementById('noteDateInput').value;
+    const title = document.getElementById('noteTitleInput').value.trim();
+    const content = document.getElementById('noteContentInput').value.trim();
+    const highlight = document.getElementById('noteHighlightInput').checked;
+
+    if (!title) { alert('Vui lòng nhập tiêu đề ghi chú'); return; }
+
+    if (id) {
+        const n = state.notes.find(item => item.id === id);
+        if (n) { n.date = date; n.title = title; n.content = content; n.highlight = highlight; }
+    } else {
+        state.notes.push({ id: 'note-' + Date.now(), date, title, content, highlight });
+    }
+
+    saveState();
+    renderNotes();
+    closeNoteModal();
+}
+
+function editNote(id) { openNoteModal(id); }
+
+function openConfirmDelete(id) {
+    deleteNoteTargetId = id;
+    document.getElementById('confirmModal').classList.add('active');
+    document.getElementById('confirmDeleteBtn').onclick = () => {
+        state.notes = state.notes.filter(n => n.id !== deleteNoteTargetId);
+        saveState();
+        renderNotes();
+        closeConfirmModal();
+    };
+}
+
+function closeConfirmModal() {
+    document.getElementById('confirmModal').classList.remove('active');
+}
+
+/* ==========================================
+   IMPORT / EXPORT & BACKUP
+   ========================================== */
+function renderAll() {
+    applyTheme(state.theme);
+    syncQuickStatusPills();
+    refreshFreeElectiveList();
+    renderDashboard();
+    renderCourses();
+    renderNotes();
+    renderLanguageTab();
+    renderOverallGoal();
+    renderGoalPlanner();
+}
+
+function exportJSON() {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
+    const anchor = document.createElement('a');
+    anchor.setAttribute("href", dataStr);
+    anchor.setAttribute("download", "student_httt_k2025.json");
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+}
+
+// Xuất bảng điểm ra CSV (mở được bằng Excel, có BOM để hiển thị đúng tiếng Việt)
+function exportCSV() {
+    const header = ['Học kỳ', 'Mã HP', 'Tên học phần', 'Số TC', 'Khối kiến thức', 'Loại', 'Trạng thái', 'Điểm 10', 'Điểm 4', 'Điểm chữ'];
+    const cell = v => `"${String(v === null || v === undefined ? '' : v).replace(/"/g, '""')}"`;
+
+    const rows = [...state.courses].filter(c => !isHiddenCourse(c))
+        .sort((a, b) => a.semester - b.semester)
+        .map(c => {
+            const g = calculateGrades(c.score10, c.status);
+            const type = c.isSub ? 'Môn phụ' : (c.custom ? 'Tự chọn tự do' : (c.group ? 'Tự chọn' : 'Bắt buộc'));
+            return [c.semester, c.code, c.name, c.credits, c.category, type, c.status,
+                c.score10 !== null ? c.score10 : '', g.score4 !== null ? g.score4.toFixed(2) : '', g.gradeLetter === '--' ? '' : g.gradeLetter];
+        });
+
+    const main = getMainCourses();
+    const sum = gpaOf(main);
+    const summary = [[], ['GPA tích lũy (hệ 4)', sum.gpa.toFixed(2)], ['TC đã đạt / 138', `${completedCreditsOf(main)} / ${TOTAL_CREDITS}`], ['TC tính GPA', sum.credits]];
+    const csv = '﻿' + [header, ...rows, ...summary].map(r => r.map(cell).join(',')).join('\r\n');
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'bang_diem_httt_k2025.csv';
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function exportTranscriptPDF() {
+    const courses = [...state.courses].filter(c => !isHiddenCourse(c)).sort((a, b) => a.semester - b.semester || a.code.localeCompare(b.code));
+    const main = getMainCourses();
+    const gpa = gpaOf(main);
+    const rows = courses.map(c => {
+        const g = calculateGrades(c.score10, c.status);
+        const result = c.status === 'Phải học lại' || (g.score4 !== null && !g.isPass) ? 'Không đạt' : (isCompleted(c) ? 'Đạt' : c.status);
+        return `<tr><td>${escapeHTML(c.semester)}</td><td>${escapeHTML(c.code)}</td><td>${escapeHTML(c.name)}</td><td>${escapeHTML(c.credits)}</td><td>${escapeHTML(c.score10 ?? '')}</td><td>${g.score4 === null ? '' : g.score4.toFixed(2)}</td><td>${escapeHTML(g.gradeLetter === '--' ? '' : g.gradeLetter)}</td><td>${escapeHTML(result)}</td></tr>`;
+    }).join('');
+    const w = window.open('', '_blank');
+    if (!w) { alert('Trình duyệt đã chặn cửa sổ xuất PDF. Hãy cho phép cửa sổ bật lên rồi thử lại.'); return; }
+    w.document.write(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Bảng điểm HTTT K2025</title><style>body{font-family:Arial,sans-serif;color:#111;margin:24px}h1{text-align:center;font-size:20px}p{margin:5px 0}table{width:100%;border-collapse:collapse;margin-top:18px;font-size:11px}th,td{border:1px solid #777;padding:6px;text-align:left}th{background:#eee}td:nth-child(1),td:nth-child(4),td:nth-child(n+5){text-align:center}@media print{body{margin:12mm}tr{break-inside:avoid}}</style></head><body><h1>BẢNG ĐIỂM — HỆ THỐNG THÔNG TIN K2025</h1><p>GPA tích lũy (hệ 4): <b>${gpa.gpa.toFixed(2)}</b></p><p>Tín chỉ đạt: <b>${completedCreditsOf(main)} / ${TOTAL_CREDITS}</b></p><table><thead><tr><th>HK</th><th>Mã HP</th><th>Tên học phần</th><th>TC</th><th>Điểm 10</th><th>Điểm 4</th><th>Điểm chữ</th><th>Kết quả</th></tr></thead><tbody>${rows}</tbody></table><script>window.onload=()=>{window.print();};<\/script></body></html>`);
+    w.document.close();
+}
+
+function importJSON(event) {
+    const input = event.target;
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        try {
+            const parsed = JSON.parse(e.target.result);
+            if (parsed && Array.isArray(parsed.courses)) {
+                state = migrateState(parsed);
+                saveState();
+                renderAll();
+                alert('Nhập dữ liệu thành công!');
+            } else {
+                alert('File JSON không đúng định dạng (thiếu danh sách môn học).');
+            }
+        } catch (err) {
+            alert('Lỗi file JSON!');
+        }
+        input.value = ''; // cho phép chọn lại cùng một file
+    };
+    reader.readAsText(file);
+}
+
+function resetDataConfirm() {
+    if (confirm('Khôi phục về dữ liệu mặc định? Mọi thay đổi điểm số sẽ bị xóa.')) {
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { console.error(e); }
+        initDefaultData();
+        renderAll();
+    }
+}
+
+function printReport() { window.print(); }
+
+/* ==========================================
+   THEME SWITCH
+   ========================================== */
+function toggleDarkMode() {
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(state.theme);
+    saveState();
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.getElementById('themeLabel').innerText = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    renderChartsCanvas();
+}
+
+    </script>
+</body>
+</html>
